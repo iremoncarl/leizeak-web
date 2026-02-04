@@ -18,8 +18,8 @@ export default function Header() {
                 </ul>
 
                 <div className="flex justify-end gap-3">
-                    <p>Cierre sesión</p>
                     <p>Cambio idioma</p>
+                    <p>Cierre sesión</p>
                 </div>
 
             </nav>
