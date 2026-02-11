@@ -1,4 +1,4 @@
-import Prueba from "../app/componentes/prueba";
+import Prueba from "../../app/componentes/prueba";
 
 export default async function Home() {
 

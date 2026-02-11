@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import logo from '../../public/vercel.svg'
 
@@ -10,16 +11,16 @@ export default function Header() {
          
                 <ul className="flex justify-center gap-6"> 
                     <li><a href="/" className="hover:text-blue-600">Inicio</a></li>
-                    <li><a href="/pages/conciertos" className="hover:text-blue-600 ">Conciertos</a></li>
-                    <li><a href="/pages/noticias" className="hover:text-blue-600 ">Noticias</a></li>
-                    <li><a href="/pages/productos" className="hover:text-blue-600 ">Productos</a></li>
-                    <li><a href="/pages/biografia" className="hover:text-blue-600 ">Biografía</a></li>
-                    <li><a href="/pages/contacto" className="hover:text-blue-600 ">Contacto</a></li>
+                    <li><a href="/conciertos" className="hover:text-blue-600 ">Conciertos</a></li>
+                    <li><a href="/noticias" className="hover:text-blue-600 ">Noticias</a></li>
+                    <li><a href="/productos" className="hover:text-blue-600 ">Productos</a></li>
+                    <li><a href="/biografia" className="hover:text-blue-600 ">Biografía</a></li>
+                    <li><a href="/contacto" className="hover:text-blue-600 ">Contacto</a></li>
                 </ul>
 
                 <div className="flex justify-end gap-3">
                     <p>Cambio idioma</p>
-                    <p>Cierre sesión</p>
+                    <a href="/login" className="hover:text-blue-600 ">Iniciar sesión</a>
                 </div>
 
             </nav>
