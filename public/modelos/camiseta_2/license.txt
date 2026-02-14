@@ -1,0 +1,11 @@
+Model Information:
+* title:	CAMISETA 7
+* source:	https://sketchfab.com/3d-models/camiseta-7-3a161eb37e274d4cafc4f7c8d9838ae6
+* author:	GEFF SPORT (https://sketchfab.com/geffsport)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "CAMISETA 7" (https://sketchfab.com/3d-models/camiseta-7-3a161eb37e274d4cafc4f7c8d9838ae6) by GEFF SPORT (https://sketchfab.com/geffsport) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
