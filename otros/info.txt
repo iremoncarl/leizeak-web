@@ -1,4 +1,15 @@
+Repo github:
+https://github.com/iremoncarl/leizeak-web.git
+
+Despliegue vercel:
+https://leizeak-web-chi.vercel.app/
+
+
+
 https://nextjs.org/docs/app/guides/internationalization
 
 https://nextjs.org/docs/app/api-reference/file-conventions/route-groups
 https://nextjs.org/docs/app/api-reference/file-conventions/layout#root-layout
+
+https://supabase.com/docs/reference/javascript/installing
+https://supabase.com/docs/guides/database/postgres/row-level-security

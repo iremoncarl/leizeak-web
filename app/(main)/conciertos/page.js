@@ -2,19 +2,11 @@ import { getConciertosFuturos, getConciertosPasados } from "@/lib/supabase/actio
 
 export default async function Conciertos() {
   const conciertosFuturos = await getConciertosFuturos();
-  console.log("futuros:")
-  console.log(conciertosFuturos)
+  //console.log("futuros:")
+  //console.log(conciertosFuturos)
   const conciertosPasados = await getConciertosPasados();
-  console.log("pasados:")
-  console.log(conciertosPasados)
-
-  /*
-  const prueba = await supabase
-  .from("conciertos")
-  .insert([{ fecha: "2026-03-15" }]);
- 
-  console.log("Respuesta:", prueba);
-  */
+  //console.log("pasados:")
+  //console.log(conciertosPasados)
 
   return (
     <div>
@@ -22,13 +14,24 @@ export default async function Conciertos() {
         <h1 className="text-3xl font-semibold">
           Página de conciertos
         </h1>
-        <h2>Conciertos futuros</h2>
+
+        <div className="min-h-[100] my-10 flex items-center justify-center">
+          <p>Espacio para calendario</p>
+        </div>
+
+        <h2 className="text-2xl">Conciertos futuros</h2>
         {conciertosFuturos.map((concierto) => (
-          <p key={concierto.id} className="text-white">{concierto.id + " - " + concierto.lugar}</p>
+          <div key={concierto.id} className="bg-white text-black mt-4 min-h-20 rounded p-4">
+            <p>{"ID del concierto: " + concierto.id}</p>
+            <p>{"Fecha del concierto: " + concierto.fecha}</p>
+          </div>
         ))}
-        <h2>Conciertos pasados</h2>
+        <h2 className="text-2xl mt-10">Conciertos pasados</h2>
         {conciertosPasados.map((concierto) => (
-          <p key={concierto.id} className="text-white">{concierto.id + " - " + concierto.lugar}</p>
+          <div key={concierto.id} className="bg-white text-black mt-4 min-h-20 rounded p-4">
+            <p>{"ID del concierto: " + concierto.id}</p>
+            <p>{"Fecha del concierto: " + concierto.fecha}</p>
+          </div>
         ))}
        
       </main>
