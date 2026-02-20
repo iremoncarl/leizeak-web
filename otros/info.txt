@@ -16,3 +16,10 @@ https://supabase.com/docs/guides/database/postgres/row-level-security
 
 https://nextjs.org/docs/app/api-reference/components/link
 https://www.npmjs.com/package/react-icons
+
+
+Línea temporal:
+https://flowbite.com/docs/components/timeline/
+
+//"@react-three/drei": "^9.122.0",
+//"@react-three/fiber": "^9.5.0",
