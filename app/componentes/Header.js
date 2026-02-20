@@ -1,27 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
+import SelectorIdioma from "../componentes/inicio/SelectorIdioma";
+import { FiUser } from "react-icons/fi";
 
 //import logo from '../../public/vercel.svg'
-import logo from '../../public/lzk_logo_txuri.png'
+import logo from '../../public/lzk_logo_txuri_simple.png'
 
 export default function Header() {
     return (
         <header className="bg-black">
-            <nav className="grid grid-cols-3 items-center px-8 py-4 ">
-                <Image src={logo} alt="Logo de Leizeak" width={50} height={50} className="flex justify-start"/>
+            <nav className="grid grid-cols-4 items-center px-8  ">
+                <Image src={logo} alt="Logo de Leizeak" width={130} height={50} className="flex justify-start"/>
          
-                <ul className="flex justify-center gap-6"> 
-                    <li><a href="/" className="hover:text-blue-600">Inicio</a></li>
-                    <li><a href="/conciertos" className="hover:text-blue-600 ">Conciertos</a></li>
-                    <li><a href="/noticias" className="hover:text-blue-600 ">Noticias</a></li>
-                    <li><a href="/productos" className="hover:text-blue-600 ">Productos</a></li>
-                    <li><a href="/biografia" className="hover:text-blue-600 ">Biografía</a></li>
-                    <li><a href="/contacto" className="hover:text-blue-600 ">Contacto</a></li>
-                </ul>
+                <div className="flex justify-between col-span-2 h-full items-center">
+                    <Link href="/" className="hover:text-[#a27736] text-lg h-full w-full flex items-center justify-center">INICIO</Link>
+                    <Link href="/conciertos" className="hover:text-[#a27736] text-lg h-full w-full flex items-center justify-center">CONCIERTOS</Link>
+                    <Link href="/noticias" className="hover:text-[#a27736] text-lg h-full w-full flex items-center justify-center">NOTICIAS</Link>
+                    <Link href="/productos" className="hover:text-[#a27736] text-lg h-full w-full flex items-center justify-center">PRODUCTOS</Link>
+                    <Link href="/biografia" className="hover:text-[#a27736] text-lg h-full w-full flex items-center justify-center">BIOGRAFÍA</Link>
+                    <Link href="/contacto" className="hover:text-[#a27736] text-lg h-full w-full flex items-center justify-center">CONTACTO</Link>
+                </div>            
 
-                <div className="flex justify-end gap-3">
-                    <p>Cambio idioma</p>
-                    <a href="/login" className="hover:text-blue-600 ">Iniciar sesión</a>
+                <div className="flex justify-end items-center gap-3">
+                    < SelectorIdioma/>
+                    <a href="/login" className="flex gap-4 items-center border border-[#6f4403] px-4 py-3 rounded-lg cursor-pointer bg-[#8b5504] hover:bg-[#a27736] transition ">
+                        <FiUser className="w-5 h-5" />
+                        <p>INICIAR SESIÓN</p>
+                    </a>
                 </div>
 
             </nav>

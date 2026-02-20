@@ -1,5 +1,3 @@
-import Prueba from "../../app/componentes/prueba";
-
 export default async function Home() {
 
   return (
@@ -9,7 +7,6 @@ export default async function Home() {
           Página de inicio
         </h1>
         <br/>
-        < Prueba/>
       </main>
     </div>
   );

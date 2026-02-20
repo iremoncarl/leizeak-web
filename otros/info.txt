@@ -13,3 +13,6 @@ https://nextjs.org/docs/app/api-reference/file-conventions/layout#root-layout
 
 https://supabase.com/docs/reference/javascript/installing
 https://supabase.com/docs/guides/database/postgres/row-level-security
+
+https://nextjs.org/docs/app/api-reference/components/link
+https://www.npmjs.com/package/react-icons

@@ -1,6 +1,9 @@
+//'use client'
 import { getOpinionesProducto } from "@/lib/supabase/actions";
 import NuevaOpinion from "@/app/componentes/productos/NuevaOpinion";
 import ModificarOpinion from "@/app/componentes/productos/ModificarOpinion";
+import ObjectCanvas from "@/app/componentes/productos/ObjectCanvas";
+import { Modelo3D } from "@/app/componentes/productos/Modelo3D";
 
 export default async function ProductoDetalle({ params }) {
   const { id } = await params;
@@ -11,17 +14,26 @@ export default async function ProductoDetalle({ params }) {
 
   const producto = {
     id,
-    nombre: `Producto ${id}`
+    nombre: `Producto ${id}`, 
+    
   };
 
 
   return (
     <main>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-30 p-5 min-h-150">
-        <div className="bg-yellow-100 p-10">
-          <p className="text-black">Imágen del produto</p>
+
+
+        <div className=" bg-white/90 rounded border border-black border-2">
+        {/*
+        
+        */}
+          <ObjectCanvas key="1">
+            <Modelo3D id={producto.id}/>
+          </ObjectCanvas>
         </div>
-        <div className="bg-green-200 text-black p-10">
+        
+        <div className="bg-green-200 text-black p-8">
           <h1 className="mb-5">Nombre del producto - {producto.nombre}</h1>
           <p>Descripción del producto</p>
           <p></p>
