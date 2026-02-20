@@ -1,3 +1,4 @@
+/*
 //import React, { Suspense, useEffect, useState } from "react";
 'use client'
 import { Canvas } from "@react-three/fiber";
@@ -27,3 +28,4 @@ const ObjectCanvas = ({ children }) => {
 };
 
 export default ObjectCanvas;
+*/

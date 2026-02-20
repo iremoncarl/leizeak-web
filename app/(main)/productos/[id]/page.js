@@ -26,11 +26,11 @@ export default async function ProductoDetalle({ params }) {
 
         <div className=" bg-white/90 rounded border border-black border-2">
         {/*
-        
-        */}
-          <ObjectCanvas key="1">
+        <ObjectCanvas key="1">
             <Modelo3D id={producto.id}/>
           </ObjectCanvas>
+        */}
+          
         </div>
         
         <div className="bg-green-200 text-black p-8">
