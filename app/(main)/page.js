@@ -1,13 +1,11 @@
 export default async function Home() {
 
   return (
-    <div>
-      <main>
-        <h1 className="text-3xl font-semibold">
-          Página de inicio
-        </h1>
-        <br/>
-      </main>
-    </div>
+    <main className="p-10">
+      <h1 className="font-serif text-4xl font-semibold">
+        INICIO
+      </h1>
+      <br/>
+    </main>
   );
 }

@@ -8,10 +8,10 @@ export default function Contacto() {
   };
 
   return (
-    <main className="p-0 m-0">
-      <div className="p-0 flex align-center justify-center">
-        <p className="text-5xl ">Contacta con nosotras</p>
-      </div>
+    <main className="p-10">
+      <h1 className="font-serif text-4xl font-semibold">
+        CONTACTO
+      </h1>
     
       <div className="grid grid-cols-2 gap-20">
 
