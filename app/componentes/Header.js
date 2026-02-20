@@ -8,8 +8,8 @@ import logo from '../../public/lzk_logo_txuri_simple.png'
 
 export default function Header() {
     return (
-        <header className="bg-black">
-            <nav className="grid grid-cols-4 items-center px-8  ">
+        <header className="bg-black/90 sticky top-0 border-b border-white/50">
+            <nav className="grid grid-cols-4 items-center px-8">
                 <Image src={logo} alt="Logo de Leizeak" width={130} height={50} className="flex justify-start"/>
          
                 <div className="flex justify-between col-span-2 h-full items-center">

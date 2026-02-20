@@ -3,7 +3,7 @@ import { FaYoutube, FaInstagram, FaFacebookF } from "react-icons/fa";
 
 export default function Footer() {
     return (
-        <footer className="bg-black py-5 px-10 flex justify-between">
+        <footer className="bg-black border-t border-white/50 py-5 px-10 flex justify-between">
             <div className="flex justify-center gap-6 ">
                 <a href="https://www.youtube.com/@leizeaktaldea9731" target="_blank" rel="noopener noreferrer" aria-label="Enlace a YouTube" className="group relative">
                     <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/20 border border-white/50 group-hover:border-white group-hover:scale-110">
