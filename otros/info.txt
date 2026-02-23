@@ -25,6 +25,9 @@ Calendario
 https://www.npmjs.com/package/react-day-picker
 https://github.com/gpbl/react-day-picker/blob/HEAD/website/docs/start.mdx
 
+Carrusel
+https://www.embla-carousel.com/examples/predefined/
+https://www.npmjs.com/package/embla-carousel
 
 //"@react-three/drei": "^9.122.0",
 //"@react-three/fiber": "^9.5.0",
