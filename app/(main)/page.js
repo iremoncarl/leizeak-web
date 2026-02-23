@@ -7,7 +7,7 @@ export default async function Home() {
     <main className="p-10">
       <h1 className="font-serif text-4xl font-semibold">
         {/*t('titulo')*/}
-        Inicio
+        INICIO
       </h1>
       <br/>
     </main>

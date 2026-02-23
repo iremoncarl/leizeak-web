@@ -10,7 +10,6 @@ export default function Calendario() {
   // TODO:: Esto se lo pasaremos desde la otra pantalla
   const conciertos = ['2026-03-14', '2026-07-06']
 
-  //const [selected, setSelected] = useState(conciertos.map(dia => new Date(dia)));
   const selected = conciertos.map(dia => new Date(dia));
 
 
@@ -37,7 +36,7 @@ export default function Calendario() {
 
 
   return (
-    <div className="bg-white text-black p-10 w-[800px] h-[520px] rounded-xl flex">
+    <div className="bg-gray-200/20 border p-8 rounded-lg flex">
       {/*
       <div className="flex flex-col bg-yellow-200 p-2 gap-4">
         <button onClick={cambiar}>EUSKERA</button>
@@ -46,15 +45,20 @@ export default function Calendario() {
       </div>
       */}
       
-      <div className=" text-black p-10 flex flex-col w-full h-full bg-blue-200">
-
+      <div className="flex flex-col w-full h-full">
+        <p className="mb-4 font-serif">CALENDARIO</p>
         <DayPicker
           locale={idioma} 
-          className="bg-orange-200"
+          className="bg-black w-full rounded-lg p-2"
           classNames={{
+            months: "w-full",
+            month_grid: "w-full",
+            //cell: "bg-yellow-200 text-center items-center justify-center",
+            //day: "bg-yellow-200 text-center items-center justify-center",
             today: "bg-yellow-200",
-            selected: "bg-amber-500 text-white rounded-xl"
+            selected: "bg-[#8b5504] rounded-xl",
           }}
+          navLayout="around"
           onDayClick={(day)=>formatearFecha(day)}
           animate
           mode="multiple"
@@ -63,9 +67,7 @@ export default function Calendario() {
           onSelect={() => null}
           //footer={ selected ? `Selected: ${selected[0]}` : "Pick a day." }
         />
-        
       </div>
     </div>
-     
   )
 }
