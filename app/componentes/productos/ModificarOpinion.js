@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { modificarOpinionProducto, eliminarOpinionProducto } from "@/lib/supabase/actions";
+import { FiTrash2, FiEdit } from "react-icons/fi";
 
 export default function ModificarOpinion({opinionId}) {
   const router = useRouter();
@@ -22,11 +23,22 @@ export default function ModificarOpinion({opinionId}) {
   }
 
   return (
-    <div className="p-5">
-      <div>
-        <button onClick={modificarOpinion} className="cursor-pointer bg-black text-white p-2 mr-2">Editar</button>
-        <button onClick={eliminarOpinion} className="cursor-pointer bg-black text-white p-2">Eliminar</button>
-      </div>
+    <div className="flex gap-4">
+      <button onClick={modificarOpinion} className="hover:bg-white/30 transition rounded-full w-10 h-10 flex items-center justify-center">
+        <FiEdit className="w-5 h-5 cursor-pointer" />
+      </button>
+      <button onClick={eliminarOpinion}  className="hover:bg-white/30 transition rounded-full w-10 h-10 flex items-center justify-center">
+        <FiTrash2 className="w-5 h-5 cursor-pointer" />
+      </button>
     </div>
   )
 }
+
+/*
+<div className="p-5">
+  <div>
+    <button onClick={modificarOpinion} className="cursor-pointer bg-black text-white p-2 mr-2">Editar</button>
+    <button onClick={eliminarOpinion} className="cursor-pointer bg-black text-white p-2">Eliminar</button>
+  </div>
+</div>
+*/
