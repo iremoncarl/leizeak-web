@@ -1,4 +1,5 @@
 import { getConciertosFuturos, getConciertosPasados } from "@/lib/supabase/actions";
+import Calendario from "@/app/componentes/conciertos/Calendario";
 
 export default async function Conciertos() {
   const conciertosFuturos = await getConciertosFuturos();
@@ -15,7 +16,7 @@ export default async function Conciertos() {
       </h1>
 
       <div className="min-h-[100] my-10 flex items-center justify-center">
-        <p>Espacio para calendario</p>
+        <Calendario/>
       </div>
 
       <h2 className="text-2xl">Conciertos futuros</h2>

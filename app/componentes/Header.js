@@ -23,7 +23,7 @@ export default function Header() {
 
                 <div className="flex justify-end items-center gap-3">
                     < SelectorIdioma/>
-                    <a href="/login" className="flex gap-4 items-center border border-[#6f4403] px-4 py-3 rounded-lg cursor-pointer bg-[#8b5504] hover:bg-[#a27736] transition ">
+                    <a href="/login" className="flex gap-3 items-center border border-[#6f4403] px-2 py-3 rounded-lg cursor-pointer bg-[#8b5504] hover:bg-[#a27736] transition ">
                         <FiUser className="w-5 h-5" />
                         <p>INICIAR SESIÓN</p>
                     </a>

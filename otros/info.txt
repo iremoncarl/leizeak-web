@@ -6,7 +6,7 @@ https://leizeak-web-chi.vercel.app/
 
 
 
-https://nextjs.org/docs/app/guides/internationalization
+https://next-intl.dev/docs/getting-started/app-router
 
 https://nextjs.org/docs/app/api-reference/file-conventions/route-groups
 https://nextjs.org/docs/app/api-reference/file-conventions/layout#root-layout
@@ -20,6 +20,11 @@ https://www.npmjs.com/package/react-icons
 
 Línea temporal:
 https://flowbite.com/docs/components/timeline/
+
+Calendario
+https://www.npmjs.com/package/react-day-picker
+https://github.com/gpbl/react-day-picker/blob/HEAD/website/docs/start.mdx
+
 
 //"@react-three/drei": "^9.122.0",
 //"@react-three/fiber": "^9.5.0",
