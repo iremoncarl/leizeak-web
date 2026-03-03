@@ -4,15 +4,15 @@ export default function Productos() {
 
   //const productos = ['Camiseta 1', 'Púa', 'Disco', 'Camiseta 2'];
   const productos = [
-    { id: 1, nombre: "Camiseta 1", imagen: "/productos_pruebas/cami_negra.png" },
-    { id: 2, nombre: "Púa", imagen: "/productos_pruebas/pua.png" },
-    { id: 3, nombre: "Disco", imagen: "/productos_pruebas/disco.png" },
-    { id: 4, nombre: "Camiseta 2", imagen: "/productos_pruebas/cami_blanca.png" }
+    { id: 1, nombre: "CAMISETA NEGRA DIBUJO", imagen: "/productos_pruebas/cami_negra.png" },
+    { id: 2, nombre: "PÚA GUITARRA", imagen: "/productos_pruebas/pua_2.jpg" },
+    { id: 3, nombre: "DISCO - EZ DA SOINURIK", imagen: "/productos_pruebas/disco_2.jpg" },
+    { id: 4, nombre: "CAMISETA BLANCA LOGO", imagen: "/productos_pruebas/cami_blanca.png" }
   ];
 
   return (
     <main className="p-10">
-      <h1 className="font-serif text-4xl font-semibold">
+      <h1 className="font-serif text-4xl font-semibold mb-4">
         PRODUCTOS
       </h1>
 

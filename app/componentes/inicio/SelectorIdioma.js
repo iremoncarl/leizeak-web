@@ -12,8 +12,8 @@ export default function SelectorIdioma() {
   }
 
   return (
-    <div className="p-5">
-        <button onClick={() => setMostrar(!mostrar)} className="flex gap-2 border border-white px-4 py-3 rounded-lg cursor-pointer hover:bg-white/30 transition">
+    <div className="p-5" onMouseEnter={() => setMostrar(true)} onMouseLeave={() => setMostrar(false)}>
+        <button className="flex gap-2 border border-white px-4 py-3 rounded-lg cursor-pointer hover:bg-white/30 transition">
             <FiGlobe className="w-5 h-5" />
             <FiChevronDown className="w-5 h-5" />
         </button>

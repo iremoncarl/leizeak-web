@@ -4,6 +4,7 @@ import NuevaOpinion from "@/app/componentes/productos/NuevaOpinion";
 import ModificarOpinion from "@/app/componentes/productos/ModificarOpinion";
 import ObjectCanvas from "@/app/componentes/productos/ObjectCanvas";
 import { Modelo3D } from "@/app/componentes/productos/Modelo3D";
+import Image from "next/image";
 
 export default async function ProductoDetalle({ params }) {
   const { id } = await params;
@@ -17,32 +18,44 @@ export default async function ProductoDetalle({ params }) {
     nombre: `Producto ${id}`, 
     
   };
+  const nombre = (id==='1') ? "CAMISETA NEGRA DIBUJO" : 
+                  (id==='2') ? "PÚA GUITARRA" :
+                  (id==='3') ? "DISCO - EZ DA SOINURIK" : "CAMISETA BLANCA LOGO";
+  const descripcion = (id==='1') ? "Nuestra camiseta negra es un básico que nunca falla. Sencilla, cómoda y con nuestro diseño en el centro. Es suave, fácil de combinar y perfecta tanto para venir a un concierto como para llevarla en tu día a día" : 
+                  (id==='2') ? "Esta es nuestra púa, con nuestro logo grabado en blanco. Es ligera, cómoda y perfecta para que te acompañe mientras tocas tu instrumento o para decorar tu casa. Un pequeño detalle, pero muy nuestro." :
+                  (id==='3') ? "‘Ez da soinurik’ es nuestro primer disco y uno de los proyectos más importantes que hemos creado juntas. Está formado por once temas que cuentan quiénes somos, de dónde venimos y todo lo que hemos vivido en este camino." : "Esta vez queriamos hacer algo diferente: una camiseta con un diseño más simple pero sin perder nuestra identidad. Con las mangas negras y nuestro logo en la parte izquierda, que le da un toque elegante para que vistas chulísimo en cualquier situación.";
+  const imagen = (id==='1') ? "/productos_pruebas/cami_negra.png" : 
+                  (id==='2') ? "/productos_pruebas/pua_2.jpg" : 
+                  (id==='3') ? "/productos_pruebas/disco_2.jpg" : "/productos_pruebas/cami_blanca.png";
+  
+
 
 
   return (
-    <main>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-30 p-5 min-h-150">
+    <main className="p-10">
+      <p className="px-6 hover:underline cursor-pointer text-lg">{'<- Volver a la página de productos'}</p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-30 p-5 min-h-150 p-14">
 
 
-        <div className=" bg-white/90 rounded border border-black border-2">
+        <div className="bg-white/90 rounded-lg border border-black border-2 flex justify-center">
         {/*
         <ObjectCanvas key="1">
             <Modelo3D id={producto.id}/>
           </ObjectCanvas>
         */}
-          
+        <Image src={imagen} alt={nombre} width={600} height={300} className="object-contain" />
         </div>
         
-        <div className="bg-green-200 text-black p-8">
-          <h1 className="mb-5">Nombre del producto - {producto.nombre}</h1>
-          <p>Descripción del producto</p>
+        <div className="bg-white/0">
+          <h1 className="mb-8 text-4xl font-bold text-white font-serif">{nombre}</h1>
+          <p className="text-white text-2xl font-serif">{descripcion}</p>
           <p></p>
         </div>
       </div>
 
 
 
-      <div className="p-10">
+      <div className="p-6 mt-10">
         <h2 className="mb-4 font-serif text-2xl">Comparte tu opinión</h2>
         <NuevaOpinion productoId={id}/>
       </div>

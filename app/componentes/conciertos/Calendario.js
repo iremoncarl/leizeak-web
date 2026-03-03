@@ -55,7 +55,7 @@ export default function Calendario() {
             month_grid: "w-full",
             //cell: "bg-yellow-200 text-center items-center justify-center",
             //day: "bg-yellow-200 text-center items-center justify-center",
-            today: "bg-yellow-200",
+            today: "bg-blue-700 rounded-full",
             selected: "bg-[#8b5504] rounded-xl",
           }}
           navLayout="around"
