@@ -1,5 +1,12 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
+
+//import logo from '../../../public/lzk_logo_txuri_simple.png'
+import logo from '../../../public/lzk_logo_txuri.png'
+//import fondo from '../../../public/biografia_principal.jpg'
+import fondo from '../../../public/pag_inicio.jpg'
+
 
 export default function Login() {
 
@@ -10,31 +17,37 @@ export default function Login() {
 
 
   return (
-    <div className="bg-yellow-500 flex flex-1 justify-center items-center">
-      <div className="w-[40vw] h-[70vh]">
-
-        <form className="bg-white rounded-3xl p-16 h-full flex flex-col justify-between" onSubmit={handleSubmit}>
+    <div className="flex flex-1 justify-center items-center">
+      
+      <Image src={fondo} alt="Leizeak en concierto" width="full" height="full" className="absolute object-cover max-h-screen"/>
+      
+      
+      <div className="w-[40vw] h-[70vh] bg-white/5 backdrop-blur rounded-3xl border border-white/30">
+        {/*
+        <Image src={logo} alt="Logo de Leizeak" width="full" height="full" className="px-70 py-10"/>
+        */}
+        
+        <form className="px-16 py-8 h-full flex flex-col justify-around" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="usuario">
-              Nombre de usuario o correo electrónico
-            </label>
-            <input className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-red-200" id="usuario" type="text" placeholder="Nombre de usuario"/>
+            <label className="block text-white/90 font-bold mb-2" htmlFor="usuario">Nombre de usuario o correo electrónico</label>
+            <input className="border border-white/30 rounded w-full p-2 text-white" id="usuario" type="text" placeholder="Nombre de usuario"/>
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="passwd">
-              Contraseña
-            </label>
-            <input className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-red-200" id="passwd" type="password" placeholder="******************"/>
+            <label className="block text-white/90 font-bold mb-2" htmlFor="passwd">Contraseña</label>
+            <input className="border border-white/30 rounded w-full p-2 text-white" id="passwd" type="password" placeholder="******************"/>
           </div>
 
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
-            Iniciar sesión
-          </button>
+          <div className="flex flex-col">
+            <button className="border border-white/30 bg-black/50 hover:bg-white/30 transition duration-300 text-white font-bold py-2 px-4 rounded-3xl" type="submit">
+              Iniciar sesión
+            </button>
 
-          <Link href="/registro" className="hover:text-blue-600 text-black">Si todavía no tienes una cuenta, puedes registrarte aquí</Link>
+            <Link href="/registro" className="hover:underline text-sm flex justify-end mt-4">Si todavía no tienes una cuenta, puedes registrarte aquí</Link>
 
-          <Link href="/" className="hover:text-blue-600 text-black">Continuar sin iniciar sesión</Link>
+            <Link href="/" className="hover:underline text-sm flex justify-end mt-4">{'Continuar sin iniciar sesión ->'}</Link>
+          </div>
+          
         </form>
 
       </div>
