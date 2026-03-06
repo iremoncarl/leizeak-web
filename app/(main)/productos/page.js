@@ -11,7 +11,7 @@ export default function Productos() {
   ];
 
   return (
-    <main className="p-10">
+    <main className="p-10 flex-1">
       <h1 className="font-serif text-4xl font-semibold mb-4">
         PRODUCTOS
       </h1>

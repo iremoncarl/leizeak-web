@@ -13,7 +13,7 @@ export default async function Home() {
     <main className="p-0 bg-[#080808]">
 
       <div>
-        <Image src={logo} alt="Logo de Leizeak" width="full" height="full" className="absolute py-20"/>
+        <Image src={logo} alt="Logo de Leizeak" width="full" height="full" className="absolute px-40 py-20"/>
         <Image src={imagen_principal} alt="Leizeak en concierto" width="full" height="full" className="top-20"/>
       </div>
 
