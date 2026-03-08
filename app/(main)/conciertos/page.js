@@ -1,5 +1,7 @@
-import { getConciertosFuturos, getConciertosPasados } from "@/lib/supabase/actions";
+import Image from "next/image";
+import { getConciertosFuturos, getConciertosPasados, getCartel } from "@/lib/supabase/actions";
 import Calendario from "@/app/componentes/conciertos/Calendario";
+import Concierto from "@/app/componentes/conciertos/Concierto";
 
 export default async function Conciertos() {
   const conciertosFuturos = await getConciertosFuturos();
@@ -9,11 +11,17 @@ export default async function Conciertos() {
   //console.log("pasados:")
   //console.log(conciertosPasados)
 
+  const conciertosFuturosConCartel = conciertosFuturos.map((concierto) => ({...concierto, cartelUrl: getCartel(concierto.cartel)}));
+  //conciertosFuturosConCartel.forEach(conciertoo => {console.log(conciertoo)});
+  const conciertosPasadosConCartel = conciertosPasados.map((concierto) => ({...concierto, cartelUrl: getCartel(concierto.cartel)}));
+
+
   return (
     <main className="p-10">
       <h1 className="font-serif text-4xl font-semibold">
         CONCIERTOS
       </h1>
+
 
       <div className="grid grid-cols-4 gap-10">
         <div className="justify-center">
@@ -27,11 +35,8 @@ export default async function Conciertos() {
           {conciertosFuturos.length===0 ? 
             <p className="mb-28 text-center">No hay información sobre próximos conciertos</p>
           :
-            conciertosFuturos.map((concierto) => (
-              <div key={concierto.id} className="bg-white text-black mt-4 min-h-20 rounded p-4">
-                <p>{"ID del concierto: " + concierto.id}</p>
-                <p>{"Fecha del concierto: " + concierto.fecha}</p>
-              </div>
+            conciertosFuturosConCartel.map((concierto) => (    
+              <Concierto key={concierto.id} fecha={concierto.fecha} lugar={concierto.lugar} hora={concierto.hora} cartel={concierto.cartelUrl}/> 
             ))
           }
           <h2 className="text-2xl mt-10 font-serif">Conciertos pasados</h2>
@@ -39,11 +44,8 @@ export default async function Conciertos() {
           {conciertosPasados.length===0 ? 
             <p className="text-center">No hay información sobre conciertos pasados</p>
           :
-            conciertosPasados.map((concierto) => (
-              <div key={concierto.id} className="bg-white text-black mt-4 min-h-20 rounded p-4">
-                <p>{"ID del concierto: " + concierto.id}</p>
-                <p>{"Fecha del concierto: " + concierto.fecha}</p>
-              </div>
+            conciertosPasadosConCartel.map((concierto) => (
+              <Concierto key={concierto.id} fecha={concierto.fecha} lugar={concierto.lugar} hora={concierto.hora} cartel={concierto.cartelUrl}/>     
             ))
           }
         </div>
@@ -52,4 +54,4 @@ export default async function Conciertos() {
     </main>
 
   );
-}
+} 

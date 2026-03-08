@@ -36,3 +36,5 @@ https://www.npmjs.com/package/embla-carousel
 
 Supabase storage:
 https://supabase.com/docs/guides/storage
+https://nextjs.org/docs/pages/api-reference/config/next-config-js/images
+https://nextjs.org/docs/pages/api-reference/components/image#configuration-options
