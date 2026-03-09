@@ -1,5 +1,5 @@
 //'use client'
-import { getOpinionesProducto } from "@/lib/supabase/actions";
+import { getOpinionesProducto, getProducto } from "@/lib/supabase/actions";
 import NuevaOpinion from "@/app/componentes/productos/NuevaOpinion";
 import ModificarOpinion from "@/app/componentes/productos/ModificarOpinion";
 import ObjectCanvas from "@/app/componentes/productos/ObjectCanvas";
@@ -9,15 +9,14 @@ import Image from "next/image";
 export default async function ProductoDetalle({ params }) {
   const { id } = await params;
 
-  const opiniones = await getOpinionesProducto(id);
-  console.log(`Opiniones del producto ${id}:`)
-  console.log(opiniones)
+  const info = await getProducto(id);
+  //console.log(`productoInfo:`, info)
 
-  const producto = {
-    id,
-    nombre: `Producto ${id}`, 
-    
-  };
+  const opiniones = await getOpinionesProducto(id);
+  //console.log(`Opiniones del producto ${id}:`)
+  //console.log(opiniones)
+
+/*
   const nombre = (id==='1') ? "CAMISETA NEGRA DIBUJO" : 
                   (id==='2') ? "PÚA GUITARRA" :
                   (id==='3') ? "DISCO - EZ DA SOINURIK" : "CAMISETA BLANCA LOGO";
@@ -27,7 +26,7 @@ export default async function ProductoDetalle({ params }) {
   const imagen = (id==='1') ? "/productos_pruebas/cami_negra.png" : 
                   (id==='2') ? "/productos_pruebas/pua_2.jpg" : 
                   (id==='3') ? "/productos_pruebas/disco_2.jpg" : "/productos_pruebas/cami_blanca.png";
-  
+  */
 
 
 
@@ -43,12 +42,15 @@ export default async function ProductoDetalle({ params }) {
             <Modelo3D id={producto.id}/>
           </ObjectCanvas>
         */}
-        <Image src={imagen} alt={nombre} width={600} height={300} className="object-contain" />
+        {info.imagen_portada &&
+          <Image src={info.imagen_portada} alt={info.nombre_es} width={600} height={300} className="object-contain" />
+        }
+        
         </div>
         
         <div className="bg-white/0">
-          <h1 className="mb-8 text-4xl font-bold text-white font-serif">{nombre}</h1>
-          <p className="text-white text-2xl font-serif">{descripcion}</p>
+          <h1 className="mb-8 text-4xl font-bold text-white font-serif">{info.nombre_es}</h1>
+          <p className="text-white text-2xl font-serif">{info.descripcion_es}</p>
           <p></p>
         </div>
       </div>
