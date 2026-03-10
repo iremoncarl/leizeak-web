@@ -38,3 +38,8 @@ Supabase storage:
 https://supabase.com/docs/guides/storage
 https://nextjs.org/docs/pages/api-reference/config/next-config-js/images
 https://nextjs.org/docs/pages/api-reference/components/image#configuration-options
+
+
+Enviar correos:
+https://resend.com/docs/send-with-nextjs
+https://github.com/resend/resend-examples/tree/main/nextjs-resend-examples/javascript
