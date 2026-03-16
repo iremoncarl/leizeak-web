@@ -43,3 +43,4 @@ https://nextjs.org/docs/pages/api-reference/components/image#configuration-optio
 Enviar correos:
 https://resend.com/docs/send-with-nextjs
 https://github.com/resend/resend-examples/tree/main/nextjs-resend-examples/javascript
+https://www.youtube.com/watch?v=yLvhWObBp9I&t=1s

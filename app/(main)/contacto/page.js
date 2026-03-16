@@ -1,11 +1,8 @@
-'use client'
 import { FaYoutube, FaInstagram, FaFacebookSquare, FaArrowRight } from "react-icons/fa";
 
+//import Formulario from "@/app/componentes/contacto/Formulario";
+
 export default function Contacto() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("aaa - handleSubmit()");
-  };
 
   return (
     <main className="p-10 flex-1">
@@ -60,18 +57,18 @@ export default function Contacto() {
 
 
         {/* Formulario de contacto */}
-        <form className="w-full flex flex-col justify-between border border-white/30 rounded-xl p-8" onSubmit={handleSubmit}>
+        <form className="w-full flex flex-col justify-between border border-white/30 rounded-xl p-8">
 
           <div className="flex flex-col md:flex-row gap-0 md:gap-8">
-            <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="nombre" type="text" placeholder="Nombre"/>
-            <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="apellidos" type="text" placeholder="Apellidos"/>
+            <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="nombre" name="nombre" type="text" placeholder="Nombre"/>
+            <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="apellidos" name="apellidos" type="text" placeholder="Apellidos"/>
           </div>
 
-          <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="correo" type="text" placeholder="Correo electrónico"/>
-          <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="asunto" type="text" placeholder="Asunto"/>
+          <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="correo" name="correo" type="text" placeholder="Correo electrónico"/>
+          <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="asunto" name="asunto" type="text" placeholder="Asunto"/>
 
           <p>Mensaje</p>
-          <textarea className="mb-8 p-2 h-full border border-white/30 focus:border-[#a27736]/70 outline-none rounded mt-2" id="mensaje" type="text" />
+          <textarea className="mb-8 p-2 h-full border border-white/30 focus:border-[#a27736]/70 outline-none rounded mt-2" id="mensaje" name="mensaje" type="text" />
         
           <button className="bg-[#8b5504] hover:bg-[#a27736] transition cursor-pointer text-white font-bold py-2 px-4 rounded-3xl" type="submit">
             Enviar mensaje
