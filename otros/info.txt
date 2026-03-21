@@ -44,3 +44,7 @@ Enviar correos:
 https://resend.com/docs/send-with-nextjs
 https://github.com/resend/resend-examples/tree/main/nextjs-resend-examples/javascript
 https://www.youtube.com/watch?v=yLvhWObBp9I&t=1s
+
+
+Autenticación:
+https://www.youtube.com/watch?v=n_sNri8TGGo

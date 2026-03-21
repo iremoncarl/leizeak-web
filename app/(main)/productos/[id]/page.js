@@ -28,8 +28,6 @@ export default async function ProductoDetalle({ params }) {
                   (id==='3') ? "/productos_pruebas/disco_2.jpg" : "/productos_pruebas/cami_blanca.png";
   */
 
-
-
   return (
     <main className="p-10">
       <p className="px-6 hover:underline cursor-pointer text-lg">{'<- Volver a la página de productos'}</p>
