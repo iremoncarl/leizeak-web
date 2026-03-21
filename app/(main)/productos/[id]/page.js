@@ -5,9 +5,16 @@ import ModificarOpinion from "@/app/componentes/productos/ModificarOpinion";
 import ObjectCanvas from "@/app/componentes/productos/ObjectCanvas";
 import { Modelo3D } from "@/app/componentes/productos/Modelo3D";
 import Image from "next/image";
+import { getUser } from "@/lib/auth/getUser";
 
 export default async function ProductoDetalle({ params }) {
   const { id } = await params;
+
+  const user = await getUser();
+  //const user = null;
+  console.log("USER:")
+  console.log(user)
+
 
   const info = await getProducto(id);
   //console.log(`productoInfo:`, info)
@@ -57,10 +64,15 @@ export default async function ProductoDetalle({ params }) {
 
       <div className="p-6 mt-10">
         <h2 className="mb-4 font-serif text-2xl">Comparte tu opinión</h2>
-        <NuevaOpinion productoId={id}/>
+        {!user ? 
+          <p className="text-center text-lg">Debes iniciar sesión para poder compartir tu opinión</p>
+        :
+          <NuevaOpinion productoId={id}/>
+        }
+        
       </div>
 
-      <div className="p-10">
+      <div className="p-6">
         <h2 className="mb-4 font-serif text-2xl">Otras opiniones</h2>
 
         {opiniones.length===0 ? 
