@@ -6,18 +6,18 @@ import { es, enGB, eu } from "react-day-picker/locale";
 import "react-day-picker/style.css";
 
 export default function Calendario({conciertosFuturos, conciertosPasados}) {
-
+  /*
   console.log("Componente calendario");
   console.log("Conciertos futuros: ", conciertosFuturos)
   console.log("Conciertos pasados: ", conciertosPasados)
-
+  */
   const conciertos = []
   conciertosFuturos.forEach(concierto => {
-    console.log(concierto.fecha)
+    //console.log(concierto.fecha)
     conciertos.push(concierto.fecha);
   });
   conciertosPasados.forEach(concierto => {
-    console.log(concierto.fecha)
+    //console.log(concierto.fecha)
     conciertos.push(concierto.fecha);
   });
 
