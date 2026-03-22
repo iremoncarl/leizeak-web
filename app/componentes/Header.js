@@ -1,17 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
-import SelectorIdioma from "../componentes/inicio/SelectorIdioma";
-import MenuDesplegable from "../componentes/inicio/MenuDesplegable";
-import { FiUser } from "react-icons/fi";
+import { cookies } from 'next/headers';
+
 import { getUser } from "@/lib/auth/getUser";
 
-//import logo from '../../public/vercel.svg'
+import SelectorIdioma from "../componentes/inicio/SelectorIdioma";
+import MenuDesplegable from "../componentes/inicio/MenuDesplegable";
+
+import { FiUser } from "react-icons/fi";
+
 import logo from '../../public/lzk_logo_txuri_simple.png'
 import CerrarSesionBtn from "./CerrarSesionBtn";
 
 export default async function Header() {
     const user = await getUser();
     
+    const store = await cookies();
+    const locale = store.get('locale')?.value;
+
     return (
         <header className="bg-black/90 sticky top-0 border-b border-white/50 z-50">
             <nav className="grid grid-cols-2 lg:grid-cols-5 items-center px-4">
@@ -44,8 +50,7 @@ export default async function Header() {
                         
                     </div>
                     <div className="flex lg:hidden justify-end">
-                        < SelectorIdioma/>
-                        < MenuDesplegable/>
+                        < MenuDesplegable user={user} idioma={locale}/>
                     </div>
                 </div>
 
