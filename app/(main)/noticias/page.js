@@ -18,7 +18,7 @@ export default async function Noticias() {
     <main className="p-10 flex flex-col flex-1 ">
       <h1 className="font-serif text-4xl font-semibold mb-14">{t('titulo')}</h1>
 
-      <div className="px-10 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
+      <div className="px-4 lg:px-10 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
       {noticias.map((noticia) => (
         <Link href={`/noticias/${noticia.id}`} key={noticia.id}>
           <div className={"bg-white/30 border border-white/30 rounded-lg max-h-[400px] overflow-hidden group hover:border-[#8b5504] transition duration-500 flex flex-col hover:cursor-pointer"}>
@@ -57,45 +57,3 @@ export default async function Noticias() {
     </main>
   );
 }
-
-
-/*
-<main className="p-10">
-      <h1 className="font-serif text-4xl font-semibold mb-14">
-        NOTICIAS
-      </h1>
-
-      <div className="px-10">
-      {noticias.map((noticia) => {
-        //const expandida = abiertas.includes(noticia.id);
-        return (
-          <div key={noticia.id} className={`bg-white/30 mb-10 p-6 rounded-lg grid grid-cols-2`}>
-            <div className={` ${!noticia.imagen && "col-span-2"}`}>
-              <h2 className="text-2xl mb-4">{noticia.titulo_es}</h2>
-              <p className="whitespace-pre-line leading-relaxed">{noticia.noticia_es}</p>
-            </div>
-            {noticia.imagen && 
-            <div>
-              <Image
-              src={noticia.imagen}
-              alt={'Imagen descriptiva de la noticia'}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="px-20 w-full max-h-120 object-contain rounded-lg m-2"
-              />
-            </div>
-            }
-            
-            {/* 
-            <div className={`overflow-hidden ${expandida ? "max-h-[1000px]" : "max-h-24"}`}>
-              <p>{noticia.noticia_es}</p>
-            </div>
-            <button className="bg-black p-2 px-4 rounded-lg mt-8" onClick={()=>expandir(noticia.id)}>{expandida ? "Ver menos" : "Ver más"}</button> 
-            
-          </div>
-        )
-      })}
-      </div>
-    </main>
-*/

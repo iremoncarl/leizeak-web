@@ -50,7 +50,7 @@ export default function CarruselVideos() {
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex gap-8">
           {videos.map((video) => (
-            <div key={video.id} className="flex-[0_0_25%]" >
+            <div key={video.id} className="flex-[0_0_80%] lg:flex-[0_0_25%]" >
               <div onClick={() => window.open(video.enlace, "_blank")} className="relative group cursor-pointer overflow-hidden rounded-2xl">
                 <Image src={video.imagen} alt={video.titulo} width={1200} height={600} className="w-full h-[400px] object-cover duration-500 group-hover:scale-105"/>
                 <div className="absolute inset-0 bg-black/60 flex opacity-0 group-hover:opacity-100 duration-300">

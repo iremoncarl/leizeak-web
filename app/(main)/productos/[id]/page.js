@@ -12,8 +12,8 @@ export default async function ProductoDetalle({ params }) {
 
   const user = await getUser();
   //const user = null;
-  console.log("USER:")
-  console.log(user)
+  //console.log("USER:")
+  //console.log(user)
 
 
   const info = await getProducto(id);

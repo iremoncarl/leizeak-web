@@ -17,7 +17,7 @@ export default async function Home() {
     <main className="p-0 bg-[#080808]">
 
       <div>
-        <Image src={logo} alt="Logo de Leizeak" width="full" height="full" className="absolute px-40 py-20"/>
+        <Image src={logo} alt="Logo de Leizeak" width="full" height="full" className="absolute px-10 lg:px-40 py-8 lg:py-20"/>
         <Image src={imagen_principal} alt="Leizeak en concierto" width="full" height="full" className="top-20"/>
       </div>
 
@@ -35,8 +35,8 @@ export default async function Home() {
       </div>
       */}      
 
-      <div className="p-10 mt-20 pb-20">
-        <h2 className="font-serif text-3xl mb-10">Escucha nuestro primer disco</h2>
+      <div className="p-6 md:p-10 mt-20 pb-20">
+        <h2 className="font-serif text-xl md:text-3xl mb-10">Escucha nuestro primer disco</h2>
         <CarruselVideos/>
       </div>
     </main>

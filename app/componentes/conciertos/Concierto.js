@@ -23,7 +23,7 @@ export default function Concierto({fecha, lugar, hora, cartel}) {
         :
           <div className="p-8 flex flex-col items-center bg-white/20">
             <FiAlertCircle className="text-gray-200 text-6xl mb-8"/>
-            <p className="text-center text-2xl">Cartel próximamente</p>
+            <p className="text-center text-md lg:text-2xl">Cartel próximamente</p>
           </div>
         }
         
@@ -40,7 +40,7 @@ export default function Concierto({fecha, lugar, hora, cartel}) {
 
       <div className="col-span-2 p-8 flex items-end justify-end">
         {cartel && 
-          <button className="border p-4 px-8 rounded-lg bg-white/10 hover:bg-white/20 cursor-pointer" onClick={() => setCartelAbierto(true)}>
+          <button className="border p-4 px-8 rounded-lg bg-white/10 hover:bg-white/20 cursor-pointer text-sm lg:text-md" onClick={() => setCartelAbierto(true)}>
           Ver cartel 
           </button>
         }

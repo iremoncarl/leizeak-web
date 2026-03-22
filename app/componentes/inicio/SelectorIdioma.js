@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-//import {useRouter} from 'next/navigation';
+import {useRouter} from 'next/navigation';
 
 import { FiGlobe, FiChevronDown } from "react-icons/fi";
 
@@ -8,13 +8,12 @@ import { FiGlobe, FiChevronDown } from "react-icons/fi";
 export default function SelectorIdioma() {
   const [mostrar, setMostrar] = useState(false);
 
-  //const router = useRouter();
+  const router = useRouter();
 
   const cambiarIdioma = (idioma) => {
     console.log(idioma);
-    //router.push(`/${idioma}`);
     document.cookie = `locale=${idioma};`;
-    window.location.reload();
+    router.refresh();
   }
 
   return (

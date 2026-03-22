@@ -6,9 +6,7 @@ export default function Contacto() {
 
   return (
     <main className="p-10 flex-1">
-      <h1 className="font-serif text-4xl font-semibold mb-14">
-        CONTACTO
-      </h1>
+      <h1 className="font-serif text-4xl font-semibold mb-14">CONTACTO</h1>
 
       <div className="h-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-40 pb-30">
 
@@ -16,7 +14,7 @@ export default function Contacto() {
         <div className="flex flex-col">
           <div>
             <p className="mb-4">¡Ponte en contacto con nosotras!</p>
-            <p className="text-3xl font-serif">leizeaktaldea@gmail.com</p>
+            <p className="text-2xl lg:text-3xl font-serif">leizeaktaldea@gmail.com</p>
           </div>
           <div className="mt-14 md:h-full mb-10 hidden md:block">
             <p className="mb-4">O siguenos en nuestras redes sociales:</p>

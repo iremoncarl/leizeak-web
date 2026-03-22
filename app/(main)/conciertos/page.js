@@ -25,13 +25,13 @@ export default async function Conciertos() {
       <h1 className="font-serif text-4xl font-semibold">{t('titulo')}</h1>
 
 
-      <div className="grid grid-cols-4 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
         <div className="justify-center">
           <div className="sticky top-20 py-10 px-2">
             <Calendario conciertosFuturos={conciertosFuturos} conciertosPasados={conciertosPasados}/>
           </div>
         </div>
-        <div className="p-10 col-span-3">
+        <div className="p-4 lg:p-10 col-span-3">
           <h2 className="text-2xl font-serif">Conciertos futuros</h2>
           <div className="border-t border-white/70 mb-8"></div>
           {conciertosFuturos.length===0 ? 
