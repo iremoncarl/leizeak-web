@@ -27,16 +27,11 @@ export default function RootLayout({ children }) {
         <Header />
         
         <div className="flex flex-1">
+          <NextIntlClientProvider>
           {children}
+          </NextIntlClientProvider>
         </div>
         
-        {/*
-        <NextIntlClientProvider>
-          <div className="flex-1">
-            {children}
-          </div>
-        </NextIntlClientProvider>
-        */}
         <Footer />
       </body>
     </html>

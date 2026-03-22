@@ -13,22 +13,24 @@ export default function SelectorIdioma() {
   const cambiarIdioma = (idioma) => {
     console.log(idioma);
     //router.push(`/${idioma}`);
+    document.cookie = `locale=${idioma};`;
+    window.location.reload();
   }
 
   return (
     <div className="p-4" onMouseEnter={() => setMostrar(true)} onMouseLeave={() => setMostrar(false)}>
-        <button className="flex gap-2 border border-white px-2 py-3 rounded-lg cursor-pointer hover:bg-white/30 transition">
-            <FiGlobe className="w-4 xl:w-5 h-4 xl:h-5" />
-            <FiChevronDown className="w-4 xl:w-5 h-4 xl:h-5" />
-        </button>
+      <button className="flex gap-2 border border-white px-2 py-3 rounded-lg cursor-pointer hover:bg-white/30 transition">
+        <FiGlobe className="w-4 xl:w-5 h-4 xl:h-5" />
+        <FiChevronDown className="w-4 xl:w-5 h-4 xl:h-5" />
+      </button>
 
-        {mostrar &&
-            <div className="absolute mt-2 bg-black rounded-md shadow-xl border border-white/50">
-                <div onClick={() => cambiarIdioma('eu')} className="w-full text-left px-4 py-2 text-white hover:bg-white/20 transition cursor-pointer mr-20 py-3">Euskara</div>
-                <div onClick={() => cambiarIdioma('es')} className="w-full text-left px-4 py-2 text-white hover:bg-white/20 transition cursor-pointer py-3">Castellano</div>
-                <div onClick={() => cambiarIdioma('en')} className="w-full text-left px-4 py-2 text-white hover:bg-white/20 transition cursor-pointer py-3">Inglés</div>
-            </div>
-        }
+      {mostrar &&
+        <div className="absolute mt-2 bg-black rounded-md shadow-xl border border-white/50">
+          <div onClick={() => cambiarIdioma('eu')} className="w-full text-left px-4 py-2 text-white hover:bg-white/20 transition cursor-pointer mr-20 py-3">Euskara</div>
+          <div onClick={() => cambiarIdioma('es')} className="w-full text-left px-4 py-2 text-white hover:bg-white/20 transition cursor-pointer py-3">Castellano</div>
+          <div onClick={() => cambiarIdioma('en')} className="w-full text-left px-4 py-2 text-white hover:bg-white/20 transition cursor-pointer py-3">Inglés</div>
+        </div>
+      }
     </div>
   )
 }

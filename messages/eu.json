@@ -1,5 +1,11 @@
 {
   "PagInicio": {
-    "titulo": "INICIO euskera"
+    "titulo": "INICIO"
+  },
+  "PagConciertos": {
+    "titulo": "KONTZERTUAK"
+  },
+  "PagNoticias": {
+    "titulo": "ALBISTEAK"
   }
 }

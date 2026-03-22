@@ -48,3 +48,6 @@ https://www.youtube.com/watch?v=yLvhWObBp9I&t=1s
 
 Autenticación:
 https://www.youtube.com/watch?v=n_sNri8TGGo
+
+Internacionalización:
+https://next-intl.dev/docs/getting-started/app-router

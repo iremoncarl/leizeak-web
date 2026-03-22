@@ -1,5 +1,11 @@
 {
   "PagInicio": {
-    "titulo": "INICIO inglés"
+    "titulo": "INICIO"
+  },
+  "PagConciertos": {
+    "titulo": "CONCERTS"
+  },
+  "PagNoticias": {
+    "titulo": "NEWS"
   }
 }

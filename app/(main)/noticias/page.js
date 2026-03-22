@@ -3,8 +3,12 @@ import Link from "next/link";
 import { getNoticias } from "@/lib/supabase/actions";
 import { FaArrowRight } from "react-icons/fa";
 import { SlCalender, SlBubble} from "react-icons/sl";
+import {getTranslations} from 'next-intl/server';
 
 export default async function Noticias() {
+
+  const t = await getTranslations('PagNoticias');
+
   const noticias = await getNoticias();
   //console.log("Noticias: ", noticias);
   //const noticias_comentarios = await getComentarios();
@@ -12,9 +16,7 @@ export default async function Noticias() {
 
   return (
     <main className="p-10 flex flex-col flex-1 ">
-      <h1 className="font-serif text-4xl font-semibold mb-14">
-        NOTICIAS
-      </h1>
+      <h1 className="font-serif text-4xl font-semibold mb-14">{t('titulo')}</h1>
 
       <div className="px-10 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
       {noticias.map((noticia) => (

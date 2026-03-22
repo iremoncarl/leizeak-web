@@ -1,9 +1,13 @@
-import Image from "next/image";
+import {getTranslations} from 'next-intl/server';
+
 import { getConciertosFuturos, getConciertosPasados, getCartel } from "@/lib/supabase/actions";
+
 import Calendario from "@/app/componentes/conciertos/Calendario";
 import Concierto from "@/app/componentes/conciertos/Concierto";
 
 export default async function Conciertos() {
+  const t = await getTranslations('PagConciertos');
+
   const conciertosFuturos = await getConciertosFuturos();
   //console.log("futuros:")
   //console.log(conciertosFuturos)
@@ -18,9 +22,7 @@ export default async function Conciertos() {
 
   return (
     <main className="p-10">
-      <h1 className="font-serif text-4xl font-semibold">
-        CONCIERTOS
-      </h1>
+      <h1 className="font-serif text-4xl font-semibold">{t('titulo')}</h1>
 
 
       <div className="grid grid-cols-4 gap-10">
