@@ -5,10 +5,23 @@ import { DayPicker } from "react-day-picker";
 import { es, enGB, eu } from "react-day-picker/locale";
 import "react-day-picker/style.css";
 
-export default function Calendario() {
+export default function Calendario({conciertosFuturos, conciertosPasados}) {
 
-  // TODO:: Esto se lo pasaremos desde la otra pantalla
-  const conciertos = ['2026-03-14', '2026-07-06']
+  console.log("Componente calendario");
+  console.log("Conciertos futuros: ", conciertosFuturos)
+  console.log("Conciertos pasados: ", conciertosPasados)
+
+  const conciertos = []
+  conciertosFuturos.forEach(concierto => {
+    console.log(concierto.fecha)
+    conciertos.push(concierto.fecha);
+  });
+  conciertosPasados.forEach(concierto => {
+    console.log(concierto.fecha)
+    conciertos.push(concierto.fecha);
+  });
+
+
 
   const selected = conciertos.map(dia => new Date(dia));
 
@@ -55,7 +68,7 @@ export default function Calendario() {
             month_grid: "w-full",
             //cell: "bg-yellow-200 text-center items-center justify-center",
             //day: "bg-yellow-200 text-center items-center justify-center",
-            today: "bg-blue-700 rounded-full",
+            today: "bg-white/90 text-black rounded-full",
             selected: "bg-[#8b5504] rounded-xl",
           }}
           navLayout="around"

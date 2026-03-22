@@ -26,7 +26,7 @@ export default async function Conciertos() {
       <div className="grid grid-cols-4 gap-10">
         <div className="justify-center">
           <div className="sticky top-20 py-10 px-2">
-            <Calendario />
+            <Calendario conciertosFuturos={conciertosFuturos} conciertosPasados={conciertosPasados}/>
           </div>
         </div>
         <div className="p-10 col-span-3">
