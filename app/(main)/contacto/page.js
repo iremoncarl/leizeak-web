@@ -1,6 +1,6 @@
+import { Formulario } from "@/app/componentes/contacto/Formulario";
 import { FaYoutube, FaInstagram, FaFacebookSquare, FaArrowRight } from "react-icons/fa";
 
-//import Formulario from "@/app/componentes/contacto/Formulario";
 
 export default function Contacto() {
 
@@ -55,6 +55,8 @@ export default function Contacto() {
 
 
         {/* Formulario de contacto */}
+        < Formulario />
+        {/*
         <form className="w-full flex flex-col justify-between border border-white/30 rounded-xl p-8">
 
           <div className="flex flex-col md:flex-row gap-0 md:gap-8">
@@ -72,6 +74,8 @@ export default function Contacto() {
             Enviar mensaje
           </button>
         </form>
+        */}
+        
       </div>      
     </main>
   );

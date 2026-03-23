@@ -29,10 +29,6 @@ Carrusel
 https://www.embla-carousel.com/examples/predefined/
 https://www.npmjs.com/package/embla-carousel
 
-//"@react-three/drei": "^9.122.0",
-//"@react-three/fiber": "^9.5.0",
-
-
 
 Supabase storage:
 https://supabase.com/docs/guides/storage
