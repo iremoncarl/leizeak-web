@@ -10,13 +10,7 @@ export default function NuevaOpinion({productoId}) {
   const [opinion, setOpinion] = useState("");
 
   const añadirOpinion = async () => {
-    /*
-    console.log("Pulsado añadir opinión")
-    console.log(titulo)
-    console.log(opinion)
-    console.log(productoId)
-    */
-    await crearOpinionProducto(productoId, "", opinion);
+    await crearOpinionProducto(productoId, opinion);
     router.refresh();
   }
 

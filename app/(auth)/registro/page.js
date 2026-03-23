@@ -8,33 +8,42 @@ import { getSupabaseBrowserClient } from "@/lib/auth/browser-client";
 import logo from '../../../public/lzk_logo_txuri.png'
 import fondo from '../../../public/pag_inicio.jpg'
 
+import { registrarUsuario } from "@/lib/auth/actions";
+
 export default function Registro() {
 
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [estado, setEstado] = useState("")
+
   async function handleSubmit(e) {
     e.preventDefault();
-    //console.log("aaa - handleSubmit()");
+
+    /*
+    const formData = new FormData(e.target);
+    console.log("formData:")
+    console.log(formData)
+    const result = await registrarUsuario(formData);
+
+    if (result.error) {
+      console.log("Error: ", result.error)
+      setEstado(result.error)
+    } else {
+      setEstado(result.success)
+      console.log("OK")
+    }
+    */
     
     if (loading) return;
     setLoading(true);
 
     const supabase = getSupabaseBrowserClient();
-/*
-    console.log("email:")
-    console.log(email)
-    console.log("password:")
-    console.log(password)
-*/
   
     const { error, data } = await supabase.auth.signUp({
       email,
-      password/*,
-      options: {
-      emailRedirectTo: ``
-      */
+      password
     });
 
     if (error) {
@@ -59,7 +68,7 @@ export default function Registro() {
 
           <div>
             <label className="block text-white/90 font-bold mb-2" htmlFor="email">Correo electrónico</label>
-            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required placeholder="Correo electrónico"/>
+            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" name="email" id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required placeholder="Correo electrónico"/>
           </div>
  
 {/*
@@ -71,18 +80,20 @@ export default function Registro() {
           
           <div>
             <label className="block text-white/90 font-bold mb-2" htmlFor="password">Contraseña</label>
-            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} required placeholder="Escribe tu contraseña"/>
+            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" name="password" id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} required placeholder="Escribe tu contraseña"/>
           </div>
 
           <div>
-            <label className="block text-white/90 font-bold mb-2" htmlFor="passwd">Verificar contraseña</label>
-            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" id="passwd" type="password" placeholder="Repite tu contraseña"/>
+            <label className="block text-white/90 font-bold mb-2" htmlFor="confirmarPassword">Verificar contraseña</label>
+            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" name="confirmarPassword" id="confirmarPassword" type="password" placeholder="Repite tu contraseña"/>
           </div>
 
           <div className="flex flex-col">
             <button className="border border-white/30 bg-black/50 hover:bg-white/30 transition duration-300 text-white font-bold py-2 px-4 rounded-3xl" type="submit">
               {loading ? "Registrando..." : "Registrarse"}
             </button>
+            
+            <p className="text-red-700">{estado}</p>
 
             <Link href="/login" className="hover:underline text-sm flex justify-end mt-4 text-right">Si ya tienes una cuenta, puedes iniciar sesión aquí</Link>
 

@@ -1,16 +1,12 @@
 'use client'
-import { useState } from "react";
 
 import { DayPicker } from "react-day-picker";
 import { es, enGB, eu } from "react-day-picker/locale";
 import "react-day-picker/style.css";
 
-export default function Calendario({conciertosFuturos, conciertosPasados}) {
-  /*
-  console.log("Componente calendario");
-  console.log("Conciertos futuros: ", conciertosFuturos)
-  console.log("Conciertos pasados: ", conciertosPasados)
-  */
+export default function Calendario({conciertosFuturos, conciertosPasados, idioma}) {
+  const idiomaCalendario = idioma==="en" ? enGB : idioma==="eu" ? eu : es;
+
   const conciertos = []
   conciertosFuturos.forEach(concierto => {
     //console.log(concierto.fecha)
@@ -21,22 +17,9 @@ export default function Calendario({conciertosFuturos, conciertosPasados}) {
     conciertos.push(concierto.fecha);
   });
 
-
-
   const selected = conciertos.map(dia => new Date(dia));
 
 
-  const [idioma, setIdioma] = useState(es);
-
-  const cambiar = () => {
-    setIdioma(eu);
-  }
-  const cambiar2 = () => {
-    setIdioma(es);
-  }
-  const cambiar3 = () => {
-    setIdioma(enGB);
-  }
 
   const formatearFecha= (fecha) => {
     console.log("Formatear fecha: ")
@@ -50,18 +33,11 @@ export default function Calendario({conciertosFuturos, conciertosPasados}) {
 
   return (
     <div className="bg-gray-200/20 border p-8 rounded-lg flex">
-      {/*
-      <div className="flex flex-col bg-yellow-200 p-2 gap-4">
-        <button onClick={cambiar}>EUSKERA</button>
-        <button onClick={cambiar2}>CASTELLANO</button>
-        <button onClick={cambiar3}>INGLÉS</button>
-      </div>
-      */}
-      
+
       <div className="flex flex-col w-full h-full">
         <p className="mb-4 font-serif">CALENDARIO</p>
         <DayPicker
-          locale={idioma} 
+          locale={idiomaCalendario} 
           className="bg-black w-full rounded-lg p-2"
           classNames={{
             months: "w-full",

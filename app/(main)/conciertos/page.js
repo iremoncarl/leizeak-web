@@ -1,4 +1,5 @@
 import {getTranslations} from 'next-intl/server';
+import { cookies } from 'next/headers';
 
 import { getConciertosFuturos, getConciertosPasados, getCartel } from "@/lib/supabase/actions";
 
@@ -6,6 +7,9 @@ import Calendario from "@/app/componentes/conciertos/Calendario";
 import Concierto from "@/app/componentes/conciertos/Concierto";
 
 export default async function Conciertos() {
+  const store = await cookies();
+  const locale = store.get('locale')?.value;
+  
   const t = await getTranslations('PagConciertos');
 
   const conciertosFuturos = await getConciertosFuturos();
@@ -28,7 +32,7 @@ export default async function Conciertos() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
         <div className="justify-center">
           <div className="sticky top-20 py-10 px-2">
-            <Calendario conciertosFuturos={conciertosFuturos} conciertosPasados={conciertosPasados}/>
+            <Calendario conciertosFuturos={conciertosFuturos} conciertosPasados={conciertosPasados} idioma={locale}/>
           </div>
         </div>
         <div className="p-4 lg:p-10 col-span-3">

@@ -17,29 +17,22 @@ export default async function ProductoDetalle({ params }) {
 
 
   const info = await getProducto(id);
-  //console.log(`productoInfo:`, info)
-
   const opiniones = await getOpinionesProducto(id);
-  //console.log(`Opiniones del producto ${id}:`)
-  //console.log(opiniones)
 
-/*
-  const nombre = (id==='1') ? "CAMISETA NEGRA DIBUJO" : 
-                  (id==='2') ? "PÚA GUITARRA" :
-                  (id==='3') ? "DISCO - EZ DA SOINURIK" : "CAMISETA BLANCA LOGO";
-  const descripcion = (id==='1') ? "Nuestra camiseta negra es un básico que nunca falla. Sencilla, cómoda y con nuestro diseño en el centro. Es suave, fácil de combinar y perfecta tanto para venir a un concierto como para llevarla en tu día a día" : 
-                  (id==='2') ? "Esta es nuestra púa, con nuestro logo grabado en blanco. Es ligera, cómoda y perfecta para que te acompañe mientras tocas tu instrumento o para decorar tu casa. Un pequeño detalle, pero muy nuestro." :
-                  (id==='3') ? "‘Ez da soinurik’ es nuestro primer disco y uno de los proyectos más importantes que hemos creado juntas. Está formado por once temas que cuentan quiénes somos, de dónde venimos y todo lo que hemos vivido en este camino." : "Esta vez queriamos hacer algo diferente: una camiseta con un diseño más simple pero sin perder nuestra identidad. Con las mangas negras y nuestro logo en la parte izquierda, que le da un toque elegante para que vistas chulísimo en cualquier situación.";
-  const imagen = (id==='1') ? "/productos_pruebas/cami_negra.png" : 
-                  (id==='2') ? "/productos_pruebas/pua_2.jpg" : 
-                  (id==='3') ? "/productos_pruebas/disco_2.jpg" : "/productos_pruebas/cami_blanca.png";
-  */
+  const formatearFecha = (fecha) => {
+    const date = new Date(fecha);
+
+    const dia = String(date.getDate()).padStart(2, "0");
+    const mes = String(date.getMonth() + 1).padStart(2, "0"); 
+    const anio = date.getFullYear();
+
+    return `${dia}-${mes}-${anio}`;
+  }
 
   return (
     <main className="p-10">
       <p className="px-6 hover:underline cursor-pointer text-lg">{'<- Volver a la página de productos'}</p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-30 p-5 min-h-150 p-14">
-
 
         <div className="bg-white/90 rounded-lg border border-black border-2 flex justify-center">
         {/*
@@ -85,12 +78,14 @@ export default async function ProductoDetalle({ params }) {
                 <div className="flex justify-between mb-2">
                   <div className="flex gap-4 items-center">
                     <p className="text-lg font-semibold">Nombre usuario</p>
-                    <p className="text-sm text-white/75">fecha</p>
+                    <p className="text-sm text-white/75">{formatearFecha(opinion.created_at)}</p>
                   </div>
-                  <ModificarOpinion opinionId={opinion.id}/>
 
+                  {(user && user.id===opinion.usuario_id) &&
+                    <ModificarOpinion opinionId={opinion.id} opinion={opinion.opinion}/>
+                  }
                 </div>
-                {/* <p className="text-white">{opinion.titulo}</p> */}
+
                 <p className="text-white/85">{opinion.opinion}</p>
               </div>
             </div>
