@@ -1,11 +1,95 @@
 {
+  "MenuNavegacion": {
+    "inicio": "INICIO",
+    "conciertos": "CONCIERTOS",
+    "noticias": "NOTICIAS",
+    "productos": "PRODUCTOS",
+    "biografia": "BIOGRAFIA",
+    "contacto": "CONTACTO",
+    "iniciarSesionBtn": "INICIAR SESIÓN",
+    "cerrarSesionBtn": "CERRAR SESIÓN"
+  },
   "PagInicio": {
-    "titulo": "INICIO"
+    "primerDisco": "Escucha nuestro primer disco"
   },
   "PagConciertos": {
-    "titulo": "CONCIERTOS"
+    "titulo": "CONCIERTOS",
+    "calendario": "Calendario",
+    "futuros": "Conciertos futuros",
+    "pasados": "Conciertos pasados",
+    "noInfoFuturos": "No hay información sobre conciertos futuros",
+    "noInfoPasados": "No hay información sobre conciertos pasados"
   },
   "PagNoticias": {
-    "titulo": "NOTICIAS"
+    "titulo": "NOTICIAS",
+    "verMas": "Ver más",
+    "volver": "<- Volver a la página de noticias",
+    "noInfo": "No se ha encontrado más información",
+    "dejarComentario": "¡Deja aquí tu comentario!",
+    "loginComentar": "Debes iniciar sesión para poder comentar",
+    "escribirComentario": "Escribe aquí tu comentario",
+    "enviarComentario": "Enviar comentario",
+    "comentarios": "Otros comentarios:",
+    "noComentarios": "Todavía no hay comentarios sobre esta noticia",
+    "cancelar": "Cancelar",
+    "guardar": "Guardar"
+  },
+  "PagProductos": {
+    "titulo": "PRODUCTOS",
+    "noImg": "Sin imagen",
+    "volver": "<- Volver a la página de productos",
+    "dejarOpinion": "Comparte tu opinión",
+    "loginComentar": "Debes iniciar sesión para poder comentar",
+    "escribirOpinion": "Escribe aquí tu opinión",
+    "enviarOpinion": "Enviar opinión",
+    "cancelar": "Cancelar",
+    "guardar": "Guardar",
+    "opiniones": "Otras opiniones:",
+    "noOpiniones": "Todavía no hay opiniones de este producto"
+  },
+  "PagBiografia": {
+    "titulo": "BIOGRAFÍA",
+    "subtitulo": "Esta es la historia de nuestro grupo",
+    "texto1": "Leizeak nació hace algunos años como un proyecto entre tres amigas: Siobhan, Irati e Irantzu, que tenían ganas de hacer ruido y contar historias propias.",
+    "texto2": "Desde entonces hemos pasado por distintos cambios en la formación, probando sonidos, estilos y compartiendo escenario con diferentes personas que han dejado su huella en el camino.",
+    "texto3": "Actualmente estamos consolidadas como un trío formado por guitarra, bajo y batería. Así es como sentimos que hemos encontrado una identidad más clara y directa.",
+    "texto4": "A través de nuestras canciones intentamos contar un poco de lo que somos y de lo que vivimos y cada concierto es para nosotras una oportunidad de compartir momentos únicos y disfrutar junto a vosotros.",
+    "texto5": "Esperamos que vosotros también podaís disfrutar este proyecto y sentirlo vuestro."
+  },
+  "PagContacto": {
+    "titulo": "CONTACTO",
+    "subtitulo": "¡Ponte en contacto con nosotras!",
+    "subtitulo2": "O siguenos en nuestras redes sociales:",
+    "formNombre": "Nombre",
+    "formApellidos": "Apellidos",
+    "formCorreo": "Correo electrónico",
+    "formAsunto": "Asunto",
+    "formMensaje": "Mensaje",
+    "formEnviar": "Enviar mensaje",
+    "formEnviando": "Enviando mensaje..."
+  },
+  "PagLogin": {
+    "usuario": "Nombre de usuario o correo electrónico",
+    "usuarioPlaceholder": "Escribe aquí tu nombre de usuario o correo",
+    "contrasenia": "Contraseña",
+    "contraseniaPlaceholder": "Escribe aquí tu contraseña",
+    "iniciarSesion": "Iniciar sesión",
+    "iniciandoSesion": "Iniciando sesión...",
+    "enlaceRegistro": "Si todavía no tienes una cuenta, puedes registrarte aquí",
+    "enlaceHome": "Continuar sin iniciar sesión ->"
+  },
+  "PagRegistro": {
+    "correo": "Correo electrónico",
+    "correoPlaceholder": "Escribe aquí tu correo electrónico",
+    "usuario": "Nombre de usuario",
+    "usuarioPlaceholder": "Escribe aquí tu nombre de usuario",
+    "contrasenia": "Contraseña",
+    "contraseniaPlaceholder": "Escribe aquí tu contraseña",
+    "contraseniaVerif": "Verificar contraseña",
+    "contraseniaVerifPlaceholder": "Vuelve a escribir tu contraseña",
+    "registrar": "Registrarse",
+    "registrando": "Registrando...",
+    "enlaceLogin": "Si ya tienes una cuenta, puedes iniciar sesión aquí",
+    "enlaceHome": "Continuar sin iniciar sesión ->"
   }
 }

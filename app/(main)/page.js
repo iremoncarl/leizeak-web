@@ -1,7 +1,5 @@
-//import {useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 import Image from "next/image";
-
-import { getUser } from "@/lib/auth/getUser";
 
 import CarruselVideos from "../componentes/inicio/CarruselVideos";
 
@@ -9,9 +7,7 @@ import logo from '../../public/lzk_logo_txuri_simple.png'
 import imagen_principal from '../../public/pag_inicio.jpg'
 
 export default async function Home() {
-  //const t = useTranslations('PagInicio');
-
-  const user = await getUser();
+  const t = await getTranslations('PagInicio');
 
   return (
     <main className="p-0 bg-[#080808]">
@@ -22,7 +18,7 @@ export default async function Home() {
       </div>
 
       <div className="p-6 md:p-10 mt-20 pb-20">
-        <h2 className="font-serif text-xl md:text-3xl mb-10">Escucha nuestro primer disco</h2>
+        <h2 className="font-serif text-xl md:text-3xl mb-10">{t('primerDisco')}</h2>
         <CarruselVideos/>
       </div>
     </main>

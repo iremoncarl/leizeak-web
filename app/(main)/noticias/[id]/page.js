@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {getTranslations} from 'next-intl/server';
 
 import NoticiaDetalles from "@/app/componentes/noticias/NoticiaDetalles";
 import NuevoComentario from "@/app/componentes/noticias/NuevoComentario";
@@ -8,6 +9,7 @@ import { getNoticias, getComentariosNoticia } from "@/lib/supabase/actions";
 import { getUser } from "@/lib/auth/getUser";
 
 export default async function Noticia({ params }) {
+  const t = await getTranslations('PagNoticias');
   
   const { id } = await params;
   const user = await getUser();
@@ -30,10 +32,10 @@ export default async function Noticia({ params }) {
 
   return (
     <main className="p-10 flex flex-1 flex-col">
-      <Link href={`/noticias`} className="px-6 hover:underline cursor-pointer text-lg">{'<- Volver a la página de noticias'}</Link>
+      <Link href={`/noticias`} className="px-6 hover:underline cursor-pointer text-lg">{t('volver')}</Link>
 
       {!noticia ? 
-        <h1 className="text-xl font-semibold mt-16 self-center">No se ha encontrado más información</h1>
+        <h1 className="text-xl font-semibold mt-16 self-center">{t('noInfo')}</h1>
       :
         <>
           <NoticiaDetalles noticia={noticia}/>
@@ -41,19 +43,19 @@ export default async function Noticia({ params }) {
 
           {/* Sección de comentarios */}
           <div className="p-6 mt-10">
-            <h2 className="mb-4 font-serif text-2xl">Deja aquí tu comentario</h2>
+            <h2 className="mb-4 font-serif text-2xl">{t('dejarComentario')}</h2>
             {!user ? 
-              <p className="text-center text-lg">Debes iniciar sesión para poder comentar</p>
+              <p className="text-center text-lg">{t('loginComentar')}</p>
             :
-              <NuevoComentario noticiaId={id}/>
+              <NuevoComentario noticiaId={id} textoPlaceHolder={t('escribirComentario')} textoEnviarBtn={t('enviarComentario')}/>
             }
           </div>
           <div className="p-6">
-            <h2 className="mb-4 font-serif text-2xl">Otros comentarios</h2>
+            <h2 className="mb-4 font-serif text-2xl">{t('comentarios')}</h2>
 
             
             {comentarios.length===0 ? 
-              <p>Todavía no hay comentarios sobre esta noticia</p>
+              <p>{t('noComentarios')}</p>
             :
               comentarios.map((comentario) => (
                 <div key={comentario.id} className="text-white w-full flex p-4 mb-5 bg-white/15 rounded-xl bg-green-300">
@@ -65,7 +67,7 @@ export default async function Noticia({ params }) {
                       </div>
 
                       {(user && user.id===comentario.usuario_id) &&
-                        <ModificarComentario comentarioId={comentario.id} comentario={comentario.comentario}/>
+                        <ModificarComentario comentarioId={comentario.id} comentario={comentario.comentario} textoCancelar={t('cancelar')} textoGuardar={t('guardar')}/>
                       }
                     </div>
 

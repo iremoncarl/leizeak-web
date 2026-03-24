@@ -1,13 +1,16 @@
-//'use client'
-import { getOpinionesProducto, getProducto } from "@/lib/supabase/actions";
-import NuevaOpinion from "@/app/componentes/productos/NuevaOpinion";
-import ModificarOpinion from "@/app/componentes/productos/ModificarOpinion";
-import ObjectCanvas from "@/app/componentes/productos/ObjectCanvas";
-import { Modelo3D } from "@/app/componentes/productos/Modelo3D";
 import Image from "next/image";
+import Link from "next/link";
+import {getTranslations} from 'next-intl/server';
+
+import { getOpinionesProducto, getProducto } from "@/lib/supabase/actions";
 import { getUser } from "@/lib/auth/getUser";
 
+import NuevaOpinion from "@/app/componentes/productos/NuevaOpinion";
+import ModificarOpinion from "@/app/componentes/productos/ModificarOpinion";
+
+
 export default async function ProductoDetalle({ params }) {
+  const t = await getTranslations('PagProductos');
   const { id } = await params;
 
   const user = await getUser();
@@ -31,19 +34,14 @@ export default async function ProductoDetalle({ params }) {
 
   return (
     <main className="p-10">
-      <p className="px-6 hover:underline cursor-pointer text-lg">{'<- Volver a la página de productos'}</p>
+      <Link href={`/productos`} className="px-6 hover:underline cursor-pointer text-lg">{t('volver')}</Link>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-30 p-5 min-h-150 p-14">
 
         <div className="bg-white/90 rounded-lg border border-black border-2 flex justify-center">
-        {/*
-        <ObjectCanvas key="1">
-            <Modelo3D id={producto.id}/>
-          </ObjectCanvas>
-        */}
-        {info.imagen_portada &&
-          <Image src={info.imagen_portada} alt={info.nombre_es} width={600} height={300} className="object-contain" />
-        }
-        
+          {info.imagen_portada &&
+            <Image src={info.imagen_portada} alt={info.nombre_es} width={600} height={300} className="object-contain" />
+          }
         </div>
         
         <div className="bg-white/0">
@@ -56,20 +54,20 @@ export default async function ProductoDetalle({ params }) {
 
 
       <div className="p-6 mt-10">
-        <h2 className="mb-4 font-serif text-2xl">Comparte tu opinión</h2>
+        <h2 className="mb-4 font-serif text-2xl">{t('dejarOpinion')}</h2>
         {!user ? 
-          <p className="text-center text-lg">Debes iniciar sesión para poder compartir tu opinión</p>
+          <p className="text-center text-lg">{t('loginComentar')}</p>
         :
-          <NuevaOpinion productoId={id}/>
+          <NuevaOpinion productoId={id} opinionPlaceholder={t('escribirOpinion')} textoEnviarBtn={t('enviarOpinion')}/>
         }
         
       </div>
 
       <div className="p-6">
-        <h2 className="mb-4 font-serif text-2xl">Otras opiniones</h2>
+        <h2 className="mb-4 font-serif text-2xl">{t('opiniones')}</h2>
 
         {opiniones.length===0 ? 
-          <p>Todavía no hay opiniones de este producto</p>
+          <p>{t('noOpiniones')}</p>
         :
           opiniones.map((opinion) => (
             <div key={opinion.id} className="text-white w-full flex p-4 mb-5 bg-white/15 rounded-xl bg-green-300">
@@ -82,7 +80,7 @@ export default async function ProductoDetalle({ params }) {
                   </div>
 
                   {(user && user.id===opinion.usuario_id) &&
-                    <ModificarOpinion opinionId={opinion.id} opinion={opinion.opinion}/>
+                    <ModificarOpinion opinionId={opinion.id} opinion={opinion.opinion} textoCancelarBtn={t('cancelar')} textoGuardarBtn={t('guardar')}/>
                   }
                 </div>
 

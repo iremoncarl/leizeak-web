@@ -1,11 +1,95 @@
 {
+  "MenuNavegacion": {
+    "inicio": "ETXEA",
+    "conciertos": "KONTZERTUAK",
+    "noticias": "ALDIRAK",
+    "productos": "PRODUKTUAK",
+    "biografia": "BIOGRAFIA",
+    "contacto": "KONTAKTUA",
+    "iniciarSesionBtn": "SARTU",
+    "cerrarSesionBtn": "IRTEN"
+  },
   "PagInicio": {
-    "titulo": "INICIO"
+    "primerDisco": "Entzun gure lehen diskoa"
   },
   "PagConciertos": {
-    "titulo": "KONTZERTUAK"
+    "titulo": "KONTZERTUAK",
+    "calendario": "Egutegia",
+    "futuros": "Etorkizuneko kontzertuak",
+    "pasados": "Iraganeko kontzertuak",
+    "noInfoFuturos": "Etorkizuneko kontzertuei buruzko informaziorik ez",
+    "noInfoPasados": "Iraganeko kontzertuei buruzko informaziorik ez"
   },
   "PagNoticias": {
-    "titulo": "ALBISTEAK"
+    "titulo": "ALDIRAK",
+    "verMas": "Ikusi gehiago",
+    "volver": "<- Albisteen orrira itzuli",
+    "noInfo": "Ez da informazio gehiagorik aurkitu",
+    "dejarComentario": "Utzi zure iruzkina hemen!",
+    "loginComentar": "Iruzkina argitaratzeko saioa hasi behar duzu",
+    "escribirComentario": "Idatzi zure iruzkina hemen",
+    "enviarComentario": "Bidali iruzkina",
+    "comentarios": "Beste iruzkinak:",
+    "noComentarios": "Oraindik ez dago iruzkinik albiste honi",
+    "cancelar": "Ezeztatu",
+    "guardar": "Gorde"
+  },
+  "PagProductos": {
+    "titulo": "PRODUKTUAK",
+    "noImg": "Irudirik ez",
+    "volver": "<- Produktuen orrialdera itzuli",
+    "dejarOpinion": "Zure berrikuspena partekatu",
+    "loginComentar": "Iruzkina argitaratzeko saioa hasi behar duzu",
+    "escribirOpinion": "Idatzi zure iritzia hemen",
+    "enviarOpinion": "Bidali iritzia",
+    "cancelar": "Ezeztatu",
+    "guardar": "Gorde",
+    "opiniones": "Beste iritziak:",
+    "noOpiniones": "Oraindik ez dago produktu honentzako iritzirik"
+  },
+  "PagBiografia": {
+    "titulo": "BIOGRAFIA",
+    "subtitulo": "Hau da gure taldearen istorioa",
+    "texto1": "Leizeak duela urte batzuk sortu zen hiru lagunen proiektu gisa: Siobhan, Irati eta Irantzu, zarata sortu eta beren istorioak kontatzeko gogoz.",
+    "texto2": "Ordutik, hainbat osaketa-aldaketa jasan ditugu, soinu eta estiloekin esperimentatuz, eta bidean bere arrastoa utzi duten hainbat pertsonarekin oholtza partekatuz.",
+    "texto3": "Orain gitarra, baxua eta bateriaz osatutako hirukote gisa finkatu gara. Horrela sentitzen dugu nortasun argiago eta zuzenagoa aurkitu dugula.",
+    "texto4": "Gure abestien bidez, nor garen eta zer bizitzen dugun pixka bat partekatu nahi dugu, eta kontzertu bakoitza aukera bat da une bereziak partekatzeko eta zurekin gozatzeko.",
+    "texto5": "Espero dugu zu ere proiektu honekin gozatu eta horren jabe zaretela sentitzea."
+  },
+  "PagContacto": {
+    "titulo": "HARREMANETARAKO",
+    "subtitulo": "Jar zaitez gurekin harremanetan!",
+    "subtitulo2": "Edo jarraitu gaitzazu sare sozialetan:",
+    "formNombre": "Lehen izena",
+    "formApellidos": "Abizenak",
+    "formCorreo": "Posta elektronikoa",
+    "formAsunto": "Gaia",
+    "formMensaje": "Mezu",
+    "formEnviar": "Mezu bidali",
+    "formEnviando": "Mezu bidaltzen..."
+  },
+  "PagLogin": {
+    "usuario": "Erabiltzaile-izena edo helbide elektronikoa",
+    "usuarioPlaceholder": "Sartu hemen zure erabiltzaile-izena edo helbide elektronikoa",
+    "contrasenia": "Pasahitza",
+    "contraseniaPlaceholder": "Sartu hemen zure pasahitza",
+    "iniciarSesion": "Sartu",
+    "iniciandoSesion": "Sartzen...",
+    "enlaceRegistro": "Oraindik konturik ez baduzu, hemen eman dezakezu izena",
+    "enlaceHome": "Sartu gabe jarraitu ->"
+  },
+  "PagRegistro": {
+    "correo": "Posta elektronikoa",
+    "correoPlaceholder": "Sartu hemen zure posta elektronikoaren helbidea",
+    "usuario": "Erabiltzaile-izena",
+    "usuarioPlaceholder": "Sartu hemen zure erabiltzaile-izena",
+    "contrasenia": "Pasahitza",
+    "contraseniaPlaceholder": "Sartu zure pasahitza hemen",
+    "contraseniaVerif": "Pasahitza egiaztatu",
+    "contraseniaVerifPlaceholder": "Berriro sartu zure pasahitza",
+    "registrar": "Erregistratu",
+    "registrando": "Erabiltzailea erregistratzen...",
+    "enlaceLogin": "Jada kontu bat baduzu, hemen saioa hasi dezakezu",
+    "enlaceHome": "Sartu gabe jarraitu ->"
   }
 }

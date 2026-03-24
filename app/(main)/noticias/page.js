@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import {getTranslations} from 'next-intl/server';
+
 import { getNoticias } from "@/lib/supabase/actions";
 import { FaArrowRight } from "react-icons/fa";
 import { SlCalender, SlBubble} from "react-icons/sl";
-import {getTranslations} from 'next-intl/server';
 
 export default async function Noticias() {
-
   const t = await getTranslations('PagNoticias');
 
   const noticias = await getNoticias();
@@ -46,7 +46,7 @@ export default async function Noticias() {
               </div>
               
               <div className="text-[#a27736] text-sm opacity-0 group-hover:opacity-100 transition duration-700 ml-auto flex items-center gap-2 group-hover:-translate-x-2 mt-8">
-                <p>Ver más</p>
+                <p>{t('verMas')}</p>
                 <FaArrowRight className=""/>
               </div>
             </div>         

@@ -4,7 +4,7 @@ import { getSupabaseBrowserClient } from "@/lib/auth/browser-client";
 import { useRouter } from "next/navigation";
 
 
-export default function CerrarSesionBtn() {
+export default function CerrarSesionBtn({texto}) {
     const router = useRouter();
 
     async function handleSignOut() {
@@ -21,7 +21,7 @@ export default function CerrarSesionBtn() {
 
     return (          
         <button onClick={() => handleSignOut()} className="flex gap-3 items-center border border-[#A31B00] px-2 py-3 rounded-lg cursor-pointer bg-[#CF2100] hover:bg-[#FF2900] transition ">
-            <p className="text-sm ">CERRAR SESIÓN</p>
+            <p className="text-sm ">{texto}</p>
             <FiArrowRight className="w-4 xl:w-5 h-4 xl:h-5" />
         </button>           
     );

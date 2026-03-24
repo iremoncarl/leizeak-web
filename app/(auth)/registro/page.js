@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import {useTranslations} from 'next-intl';
 
 import { useState } from "react"
 import { getSupabaseBrowserClient } from "@/lib/auth/browser-client";
@@ -11,6 +12,7 @@ import fondo from '../../../public/pag_inicio.jpg'
 import { registrarUsuario } from "@/lib/auth/actions";
 
 export default function Registro() {
+  const t = useTranslations('PagRegistro');
 
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
@@ -67,8 +69,8 @@ export default function Registro() {
         <form className="px-16 py-8 h-full flex flex-col justify-around text-sm lg:text-lg" onSubmit={handleSubmit}>
 
           <div>
-            <label className="block text-white/90 font-bold mb-2" htmlFor="email">Correo electrónico</label>
-            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" name="email" id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required placeholder="Correo electrónico"/>
+            <label className="block text-white/90 font-bold mb-2" htmlFor="email">{t('correo')}</label>
+            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" name="email" id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required placeholder={t('correoPlaceholder')}/>
           </div>
  
 {/*
@@ -79,25 +81,25 @@ export default function Registro() {
 */}
           
           <div>
-            <label className="block text-white/90 font-bold mb-2" htmlFor="password">Contraseña</label>
-            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" name="password" id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} required placeholder="Escribe tu contraseña"/>
+            <label className="block text-white/90 font-bold mb-2" htmlFor="password">{t('contrasenia')}</label>
+            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" name="password" id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} required placeholder={t('contraseniaPlaceholder')}/>
           </div>
 
           <div>
-            <label className="block text-white/90 font-bold mb-2" htmlFor="confirmarPassword">Verificar contraseña</label>
-            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" name="confirmarPassword" id="confirmarPassword" type="password" placeholder="Repite tu contraseña"/>
+            <label className="block text-white/90 font-bold mb-2" htmlFor="confirmarPassword">{t('contraseniaVerif')}</label>
+            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" name="confirmarPassword" id="confirmarPassword" type="password" placeholder={t('contraseniaVerifPlaceholder')}/>
           </div>
 
           <div className="flex flex-col">
             <button className="border border-white/30 bg-black/50 hover:bg-white/30 transition duration-300 text-white font-bold py-2 px-4 rounded-3xl" type="submit">
-              {loading ? "Registrando..." : "Registrarse"}
+              {loading ? t('registrando') : t('registrar')}
             </button>
             
             <p className="text-red-700">{estado}</p>
 
-            <Link href="/login" className="hover:underline text-sm flex justify-end mt-4 text-right">Si ya tienes una cuenta, puedes iniciar sesión aquí</Link>
+            <Link href="/login" className="hover:underline text-sm flex justify-end mt-4 text-right">{t('enlaceLogin')}</Link>
 
-            <Link href="/" className="hover:underline text-sm flex justify-end mt-4 text-right">{'Continuar sin iniciar sesión ->'}</Link>
+            <Link href="/" className="hover:underline text-sm flex justify-end mt-4 text-right">{t('enlaceHome')}</Link>
           </div>
 
         </form>

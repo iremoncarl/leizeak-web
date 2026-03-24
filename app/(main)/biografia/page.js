@@ -1,4 +1,5 @@
 import Image from "next/image";
+import {getTranslations} from 'next-intl/server';
 
 import { getLineaTemporal } from "@/lib/supabase/actions";
 
@@ -6,26 +7,25 @@ import imagenPrincipal from '../../../public/biografia_principal.jpg'
 
 
 export default async function Biografia() {
+  const t = await getTranslations('PagBiografia');
 
   const fechasLineaTemporal = await getLineaTemporal();
 
   return (
     <main className="p-10">
-      <h1 className="font-serif text-4xl font-semibold mb-4">
-        BIOGRAFÍA
-      </h1>
+      <h1 className="font-serif text-4xl font-semibold mb-4">{t('titulo')}</h1>
 
       <div className="grid grid-cols-1 xl:grid-cols-2 mb-20 gap-20 p-2 lg:p-10">
 
         <Image src={imagenPrincipal} alt="Foto de las componentes de Leizeak" className="rounded-md"/>
         
         <div>
-          <h2 className="text-xl xl:text-3xl text-[#a27736] font-serif">Esta es la historia de nuestro grupo</h2>
-          <p className="text-md xl:text-2xl mt-4">Leizeak nació hace algunos años como un proyecto entre tres amigas: Siobhan, Irati e Irantzu, que tenían ganas de hacer ruido y contar historias propias.</p>
-          <p className="text-md xl:text-2xl mt-4">Desde entonces hemos pasado por distintos cambios en la formación, probando sonidos, estilos y compartiendo escenario con diferentes personas que han dejado su huella en el camino.</p>
-          <p className="text-md xl:text-2xl mt-4">Actualmente estamos consolidadas como un trío formado por guitarra, bajo y batería. Así es como sentimos que hemos encontrado una identidad más clara y directa. </p>
-          <p className="text-md xl:text-2xl mt-4">A través de nuestras canciones intentamos contar un poco de lo que somos y de lo que vivimos y cada concierto es para nosotras una oportunidad de compartir momentos únicos y disfrutar junto a vosotros.</p>
-          <p className="text-md xl:text-2xl mt-4">Esperamos que vosotros también podaís disfrutar este proyecto y sentirlo vuestro.</p>
+          <h2 className="text-xl xl:text-3xl text-[#a27736] font-serif">{t('subtitulo')}</h2>
+          <p className="text-md xl:text-2xl mt-4">{t('texto1')}</p>
+          <p className="text-md xl:text-2xl mt-4">{t('texto2')}</p>
+          <p className="text-md xl:text-2xl mt-4">{t('texto3')}</p>
+          <p className="text-md xl:text-2xl mt-4">{t('texto4')}</p>
+          <p className="text-md xl:text-2xl mt-4">{t('texto5')}</p>
         </div>
       </div>
 

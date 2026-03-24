@@ -4,7 +4,7 @@ import { DayPicker } from "react-day-picker";
 import { es, enGB, eu } from "react-day-picker/locale";
 import "react-day-picker/style.css";
 
-export default function Calendario({conciertosFuturos, conciertosPasados, idioma}) {
+export default function Calendario({conciertosFuturos, conciertosPasados, idioma, calendarioTitulo}) {
   const idiomaCalendario = idioma==="en" ? enGB : idioma==="eu" ? eu : es;
 
   const conciertos = []
@@ -35,7 +35,7 @@ export default function Calendario({conciertosFuturos, conciertosPasados, idioma
     <div className="bg-gray-200/20 border p-8 rounded-lg flex">
 
       <div className="flex flex-col w-full h-full">
-        <p className="mb-4 font-serif">CALENDARIO</p>
+        <p className="mb-4 font-serif">{calendarioTitulo}</p>
         <DayPicker
           locale={idiomaCalendario} 
           className="bg-black w-full rounded-lg p-2"

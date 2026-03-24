@@ -1,11 +1,95 @@
 {
+  "MenuNavegacion": {
+    "inicio": "HOME",
+    "conciertos": "CONCERTS",
+    "noticias": "NEWS",
+    "productos": "PRODUCTS",
+    "biografia": "BIOGRAPHY",
+    "contacto": "CONTACT",
+    "iniciarSesionBtn": "LOG IN",
+    "cerrarSesionBtn": "LOG OUT"
+  },
   "PagInicio": {
-    "titulo": "INICIO"
+    "primerDisco": "Listen to our first album"
   },
   "PagConciertos": {
-    "titulo": "CONCERTS"
+    "titulo": "CONCERTS",
+    "calendario": "Calendar",
+    "futuros": "Upcoming concerts",
+    "pasados": "Past concerts",
+    "noInfoFuturos": "No information on upcoming concerts",
+    "noInfoPasados": "No information on past concerts"
   },
   "PagNoticias": {
-    "titulo": "NEWS"
+    "titulo": "NEWS",
+    "verMas": "See more",
+    "volver": "<- Back to the news page",
+    "noInfo": "No further information has been found",
+    "dejarComentario": "Leave your comment here!",
+    "loginComentar": "You must log in to post a comment",
+    "escribirComentario": "Write your comment here",
+    "enviarComentario": "Submit comment",
+    "comentarios": "Other comments:",
+    "noComentarios": "There are no comments on this news item yet",
+    "cancelar": "Cancel",
+    "guardar": "Save"
+  },
+  "PagProductos": {
+    "titulo": "PRODUCTS",
+    "noImg": "No image",
+    "volver": "<- Back to the products page",
+    "dejarOpinion": "Share your review",
+    "loginComentar": "You must log in to post a comment",
+    "escribirOpinion": "Write your review here",
+    "enviarOpinion": "Submit review",
+    "cancelar": "Cancel",
+    "guardar": "Save",
+    "opiniones": "Other reviews:",
+    "noOpiniones": "There are no reviews for this product yet"
+  },
+  "PagBiografia": {
+    "titulo": "BIOGRAPHY",
+    "subtitulo": "This is the story of our group",
+    "texto1": "Leizeak was formed a few years ago as a project between three friends: Siobhan, Irati and Irantzu, who were keen to make some noise and tell their own stories.",
+    "texto2": "Since then, we’ve gone through various line-up changes, experimenting with sounds and styles, and sharing the stage with different people who have left their mark along the way.",
+    "texto3": "We are now established as a trio consisting of guitar, bass and drums. This is how we feel we have found a clearer and more direct identity.",
+    "texto4": "Through our songs, we try to share a little of who we are and what we experience, and every concert is an opportunity for us to share special moments and enjoy ourselves with you.",
+    "texto5": "We hope that you too will enjoy this project and feel a sense of ownership towards it."
+  },
+  "PagContacto": {
+    "titulo": "CONTACT",
+    "subtitulo": "Get in touch with us!",
+    "subtitulo2": "Or follow us on social media:",
+    "formNombre": "First name",
+    "formApellidos": "Surname",
+    "formCorreo": "Email",
+    "formAsunto": "Subject",
+    "formMensaje": "Message",
+    "formEnviar": "Send message",
+    "formEnviando": "Sending message..."
+  },
+  "PagLogin": {
+    "usuario": "Username or email address",
+    "usuarioPlaceholder": "Enter your username or email address here",
+    "contrasenia": "Password",
+    "contraseniaPlaceholder": "Enter your password here",
+    "iniciarSesion": "Log in",
+    "iniciandoSesion": "Logging in...",
+    "enlaceRegistro": "If you don’t have an account yet, you can sign up here",
+    "enlaceHome": "Continue without logging in ->"
+  },
+  "PagRegistro": {
+    "correo": "Email",
+    "correoPlaceholder": "Enter your email address here",
+    "usuario": "Username",
+    "usuarioPlaceholder": "Enter your username here",
+    "contrasenia": "Password",
+    "contraseniaPlaceholder": "Enter your password here",
+    "contraseniaVerif": "Verify password",
+    "contraseniaVerifPlaceholder": "Re-enter your password",
+    "registrar": "Register",
+    "registrando": "Registering user...",
+    "enlaceLogin": "If you already have an account, you can log in here",
+    "enlaceHome": "Continue without logging in ->"
   }
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cookies } from 'next/headers';
+import {getTranslations} from 'next-intl/server';
 
 import { getUser } from "@/lib/auth/getUser";
 
@@ -13,6 +14,8 @@ import logo from '../../public/lzk_logo_txuri_simple.png'
 import CerrarSesionBtn from "./CerrarSesionBtn";
 
 export default async function Header() {
+    const t = await getTranslations('MenuNavegacion');
+
     const user = await getUser();
     
     const store = await cookies();
@@ -27,24 +30,24 @@ export default async function Header() {
                 
          
                 <div className="hidden lg:flex justify-between col-span-3 h-full items-center">
-                    <Link href="/" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">INICIO</Link>
-                    <Link href="/conciertos" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">CONCIERTOS</Link>
-                    <Link href="/noticias" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">NOTICIAS</Link>
-                    <Link href="/productos" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">PRODUCTOS</Link>
-                    <Link href="/biografia" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">BIOGRAFÍA</Link>
-                    <Link href="/contacto" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">CONTACTO</Link>
+                    <Link href="/" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">{t('inicio')}</Link>
+                    <Link href="/conciertos" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">{t('conciertos')}</Link>
+                    <Link href="/noticias" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">{t('noticias')}</Link>
+                    <Link href="/productos" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">{t('productos')}</Link>
+                    <Link href="/biografia" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">{t('biografia')}</Link>
+                    <Link href="/contacto" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">{t('contacto')}</Link>
                 </div>            
 
                 <div>
                     <div className="hidden lg:flex justify-end items-center gap-3">
                         < SelectorIdioma/>
                         {user ? 
-                            <CerrarSesionBtn/>
+                            <CerrarSesionBtn texto={t('cerrarSesionBtn')}/>
                         :
                         
                             <a href="/login" className="flex gap-3 items-center border border-[#6f4403] px-2 py-3 rounded-lg cursor-pointer bg-[#8b5504] hover:bg-[#a27736] transition ">
                                 <FiUser className="w-4 xl:w-5 h-4 xl:h-5" />
-                                <p className="text-sm ">INICIAR SESIÓN</p>
+                                <p className="text-sm ">{t('iniciarSesionBtn')}</p>
                             </a>
                         }
                         

@@ -1,23 +1,36 @@
+import {getTranslations} from 'next-intl/server';
+
 import { Formulario } from "@/app/componentes/contacto/Formulario";
 import { FaYoutube, FaInstagram, FaFacebookSquare, FaArrowRight } from "react-icons/fa";
 
 
-export default function Contacto() {
+export default async function Contacto() {
+  const t = await getTranslations('PagContacto');
+
+  const textosFormulario = {
+    "nombre" : t('formNombre'),
+    "apellidos": t('formApellidos'),
+    "correo": t('formCorreo'),
+    "asunto": t('formAsunto'),
+    "mensaje": t('formMensaje'),
+    "enviar": t('formEnviar'),
+    "enviando": t('formEnviando')
+  }
 
   return (
     <main className="p-10 flex-1">
-      <h1 className="font-serif text-4xl font-semibold mb-14">CONTACTO</h1>
+      <h1 className="font-serif text-4xl font-semibold mb-14">{t('titulo')}</h1>
 
       <div className="h-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-40 pb-30">
 
         {/* Info de contacto */}
         <div className="flex flex-col">
           <div>
-            <p className="mb-4">¡Ponte en contacto con nosotras!</p>
+            <p className="mb-4">{t('subtitulo')}</p>
             <p className="text-2xl lg:text-3xl font-serif">leizeaktaldea@gmail.com</p>
           </div>
           <div className="mt-14 md:h-full mb-10 hidden md:block">
-            <p className="mb-4">O siguenos en nuestras redes sociales:</p>
+            <p className="mb-4">{t('subtitulo2')}</p>
             <div className="h-full flex flex-col justify-between">           
               <a href="https://www.youtube.com/@leizeaktaldea9731" target="_blank" rel="noopener noreferrer" aria-label="Enlace a YouTube">
                 <div className="border border-white hover:border-[#8b5504] transition duration-500 rounded-md p-4 flex items-center hover:translate-x-2 group">
@@ -55,7 +68,7 @@ export default function Contacto() {
 
 
         {/* Formulario de contacto */}
-        < Formulario />
+        < Formulario textosFormulario={textosFormulario}/>
         {/*
         <form className="w-full flex flex-col justify-between border border-white/30 rounded-xl p-8">
 

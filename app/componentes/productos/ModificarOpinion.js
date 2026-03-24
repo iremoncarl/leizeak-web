@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { modificarOpinionProducto, eliminarOpinionProducto } from "@/lib/supabase/actions";
 import { FiTrash2, FiEdit } from "react-icons/fi";
 
-export default function ModificarOpinion({opinionId, opinion}) {
+export default function ModificarOpinion({opinionId, opinion, textoCancelarBtn, textoGuardarBtn }) {
   const router = useRouter();
 
   const [nuevaOpinion, setNuevaOpinion] = useState(opinion);
@@ -39,10 +39,10 @@ export default function ModificarOpinion({opinionId, opinion}) {
             <textarea type="text" value={nuevaOpinion} onChange={(e) => setNuevaOpinion(e.target.value)} className="w-full p-2 mb-4 min-h-30 rounded border border-white/20"/>
               <div className="flex justify-between mt-8">
                 <button onClick={() => setModifOpinion(false)} className="bg-[#ff0000] hover:bg-[#a27736] transition items-center px-4 py-2 rounded cursor-pointer align-end flex gap-2 self-end">
-                  <p>Cancelar</p>
+                  <p>{textoCancelarBtn}</p>
                 </button> 
                 <button onClick={modificarOpinion} className="bg-[#00ff00] hover:bg-[#a27736] transition items-center px-4 py-2 rounded cursor-pointer align-end flex gap-2 self-end">
-                  <p>Guardar</p>
+                  <p>{textoGuardarBtn}</p>
                 </button> 
               </div>
                  
