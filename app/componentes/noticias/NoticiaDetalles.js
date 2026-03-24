@@ -15,11 +15,11 @@ export default function NoticiaDetalles({noticia}) {
 
   return (
     <div className="">
-      <h1 className="font-serif text-4xl md:text-5xl font-semibold my-10">{noticia[`titulo_${locale}`]}</h1>
+      <h1 className="font-serif text-2xl lg:text-4xl md:text-5xl font-semibold my-10">{noticia[`titulo_${locale}`]}</h1>
 
       <div className={`flex gap-10 flex-col ${noticia.imagen && imgVertical && "lg:flex-row"} `}> {/* lg:flex-row */}
         {/* Contenido de la noticia */}
-        <div className="text-lg leading-relaxed whitespace-pre-line flex flex-1">{noticia[`noticia_${locale}`]}</div>
+        <div className="text-md lg:text-lg leading-relaxed whitespace-pre-line flex flex-1 text-justify">{noticia[`noticia_${locale}`]}</div>
 
         {/* Imagen de la noticia */}
         {noticia.imagen && (

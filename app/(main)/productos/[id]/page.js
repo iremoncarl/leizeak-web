@@ -37,9 +37,9 @@ export default async function ProductoDetalle({ params }) {
 
   return (
     <main className="p-10">
-      <Link href={`/productos`} className="px-6 hover:underline cursor-pointer text-lg">{t('volver')}</Link>
+      <Link href={`/productos`} className="px-0 lg:px-6 hover:underline cursor-pointer text-lg">{t('volver')}</Link>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-30 p-5 min-h-150 p-14">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-30 min-h-150 p-0 pt-8 lg:p-14">
 
         <div className="bg-white/90 rounded-lg border border-black border-2 flex justify-center">
           {info.imagen_portada &&
@@ -48,26 +48,26 @@ export default async function ProductoDetalle({ params }) {
         </div>
         
         <div className="bg-white/0">
-          <h1 className="mb-8 text-4xl font-bold text-white font-serif">{info[`nombre_${locale}`]}</h1>
-          <p className="text-white text-2xl font-serif">{info[`descripcion_${locale}`]}</p>
+          <h1 className="mb-8 text-2xl lg:text-4xl font-bold text-white font-serif">{info[`nombre_${locale}`]}</h1>
+          <p className="text-white text-md lg:text-lg font-serif text-justify">{info[`descripcion_${locale}`]}</p>
           <p></p>
         </div>
       </div>
 
 
 
-      <div className="p-6 mt-10">
-        <h2 className="mb-4 font-serif text-2xl">{t('dejarOpinion')}</h2>
+      <div className="mt-16">
+        <h2 className="mb-4 font-serif text-lg lg:text-2xl">{t('dejarOpinion')}</h2>
         {!user ? 
-          <p className="text-center text-lg">{t('loginComentar')}</p>
+          <p className="text-md lg:text-lg">{t('loginComentar')}</p>
         :
           <NuevaOpinion productoId={id} opinionPlaceholder={t('escribirOpinion')} textoEnviarBtn={t('enviarOpinion')}/>
         }
         
       </div>
 
-      <div className="p-6">
-        <h2 className="mb-4 font-serif text-2xl">{t('opiniones')}</h2>
+      <div className="mt-16">
+        <h2 className="mb-4 font-serif text-lg lg:text-2xl">{t('opiniones')}</h2>
 
         {opiniones.length===0 ? 
           <p>{t('noOpiniones')}</p>

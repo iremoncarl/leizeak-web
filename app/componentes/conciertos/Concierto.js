@@ -8,8 +8,8 @@ export default function Concierto({fecha, lugar, hora, cartel}) {
   const [cartelAbierto, setCartelAbierto] = useState(false);
 
   return (
-    <div className="bg-gray-200/20 border rounded-lg grid grid-cols-10 mb-8">
-      <div className="col-span-2 rounded-l-lg">
+    <div className="bg-gray-200/20 border rounded-lg grid grid-cols-10 mb-8 hover:border-[#8b5504] duration-300 hover:cursor-pointer group">
+      <div className="col-span-5 lg:col-span-2 rounded-l-lg">
         {cartel ? 
           <Image 
             width={0}
@@ -29,24 +29,21 @@ export default function Concierto({fecha, lugar, hora, cartel}) {
         
       </div>
       
-      <div className="p-8 gap-2 col-span-6">
-        <p className="mb-4 font-bold text-xl">{fecha}</p>
-        <p className="text-lg">{lugar}</p>
+      <div className="p-8 gap-2 col-span-5 lg:col-span-8">
+        <p className="mb-4 font-bold text-lg lg:text-xl group-hover:text-[#a27736] duration-300">{fecha}</p>
+        <p className="text-md lg:text-lg">{lugar}</p>
         { hora &&
           <p className="mt-4">{hora}</p>
         }
-        
-      </div>
-
-      <div className="col-span-2 p-8 flex items-end justify-end">
         {cartel && 
-          <button className="border p-4 px-8 rounded-lg bg-white/10 hover:bg-white/20 cursor-pointer text-sm lg:text-md" onClick={() => setCartelAbierto(true)}>
+          <button className="block lg:hidden border p-4 mt-2 rounded-lg bg-white/10 hover:bg-white/20 cursor-pointer text-sm" onClick={() => setCartelAbierto(true)}>
           Ver cartel 
           </button>
         }
         
       </div>
 
+    
 
 
       {cartelAbierto && 

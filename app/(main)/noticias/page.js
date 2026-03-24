@@ -17,8 +17,8 @@ export default async function Noticias() {
   //console.log("Comentarios noticias: ", noticias_comentarios);
 
   return (
-    <main className="p-10 flex flex-col flex-1 ">
-      <h1 className="font-serif text-4xl font-semibold mb-14">{t('titulo')}</h1>
+    <main className="px-4 lg:px-10 py-6 lg:py-10 flex flex-col flex-1 ">
+      <h1 className="font-serif text-3xl lg:text-4xl font-semibold mb-6 lg:mb-14">{t('titulo')}</h1>
 
       <div className="px-4 lg:px-10 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
       {noticias.map((noticia) => (

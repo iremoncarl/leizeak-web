@@ -32,7 +32,7 @@ export default async function Noticia({ params }) {
 
   return (
     <main className="p-10 flex flex-1 flex-col">
-      <Link href={`/noticias`} className="px-6 hover:underline cursor-pointer text-lg">{t('volver')}</Link>
+      <Link href={`/noticias`} className="px-0 lg:px-6 hover:underline cursor-pointer text-lg">{t('volver')}</Link>
 
       {!noticia ? 
         <h1 className="text-xl font-semibold mt-16 self-center">{t('noInfo')}</h1>
@@ -42,16 +42,16 @@ export default async function Noticia({ params }) {
 
 
           {/* Sección de comentarios */}
-          <div className="p-6 mt-10">
-            <h2 className="mb-4 font-serif text-2xl">{t('dejarComentario')}</h2>
+          <div className="mt-16">
+            <h2 className="mb-4 font-serif text-lg lg:text-2xl">{t('dejarComentario')}</h2>
             {!user ? 
-              <p className="text-center text-lg">{t('loginComentar')}</p>
+              <p className="text-md lg:text-lg">{t('loginComentar')}</p>
             :
               <NuevoComentario noticiaId={id} textoPlaceHolder={t('escribirComentario')} textoEnviarBtn={t('enviarComentario')}/>
             }
           </div>
-          <div className="p-6">
-            <h2 className="mb-4 font-serif text-2xl">{t('comentarios')}</h2>
+          <div className="mt-16">
+            <h2 className="mb-4 font-serif text-lg lg:text-2xl">{t('comentarios')}</h2>
 
             
             {comentarios.length===0 ? 
@@ -59,10 +59,10 @@ export default async function Noticia({ params }) {
             :
               comentarios.map((comentario) => (
                 <div key={comentario.id} className="text-white w-full flex p-4 mb-5 bg-white/15 rounded-xl bg-green-300">
-                  <div className="px-4 w-full">
+                  <div className="px-0 lg:px-4 w-full">
                     <div className="flex justify-between mb-2">
                       <div className="flex gap-4 items-center">
-                        <p className="text-lg font-semibold">Nombre usuario</p>
+                        <p className="text-md lg:text-lg font-semibold">Nombre usuario</p>
                         <p className="text-sm text-white/75">{formatearFecha(comentario.created_at)}</p>
                       </div>
 
@@ -71,7 +71,7 @@ export default async function Noticia({ params }) {
                       }
                     </div>
 
-                    <p className="text-white/85">{comentario.comentario}</p>
+                    <p className="text-sm g:text-md text-white/85">{comentario.comentario}</p>
                   </div>
                 </div>
               ))

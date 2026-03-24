@@ -32,7 +32,7 @@ export default function Calendario({conciertosFuturos, conciertosPasados, idioma
 
 
   return (
-    <div className="bg-gray-200/20 border p-8 rounded-lg flex">
+    <div className="bg-gray-200/20 border p-4 lg:p-8 rounded-lg flex">
 
       <div className="flex flex-col w-full h-full">
         <p className="mb-4 font-serif">{calendarioTitulo}</p>

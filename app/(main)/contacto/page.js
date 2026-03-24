@@ -18,8 +18,8 @@ export default async function Contacto() {
   }
 
   return (
-    <main className="p-10 flex-1">
-      <h1 className="font-serif text-4xl font-semibold mb-14">{t('titulo')}</h1>
+    <main className="px-4 lg:px-10 py-6 lg:py-10 flex-1">
+      <h1 className="font-serif text-3xl lg:text-4xl font-semibold mb-14">{t('titulo')}</h1>
 
       <div className="h-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-40 pb-30">
 
@@ -69,25 +69,6 @@ export default async function Contacto() {
 
         {/* Formulario de contacto */}
         < Formulario textosFormulario={textosFormulario}/>
-        {/*
-        <form className="w-full flex flex-col justify-between border border-white/30 rounded-xl p-8">
-
-          <div className="flex flex-col md:flex-row gap-0 md:gap-8">
-            <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="nombre" name="nombre" type="text" placeholder="Nombre"/>
-            <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="apellidos" name="apellidos" type="text" placeholder="Apellidos"/>
-          </div>
-
-          <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="correo" name="correo" type="text" placeholder="Correo electrónico"/>
-          <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="asunto" name="asunto" type="text" placeholder="Asunto"/>
-
-          <p>Mensaje</p>
-          <textarea className="mb-8 p-2 h-full border border-white/30 focus:border-[#a27736]/70 outline-none rounded mt-2" id="mensaje" name="mensaje" type="text" />
-        
-          <button className="bg-[#8b5504] hover:bg-[#a27736] transition cursor-pointer text-white font-bold py-2 px-4 rounded-3xl" type="submit">
-            Enviar mensaje
-          </button>
-        </form>
-        */}
         
       </div>      
     </main>
