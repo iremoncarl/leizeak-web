@@ -38,6 +38,7 @@ export default function ModificarComentario({comentarioId, comentario, textoCanc
     mostrarMensajeExito('¡Comentario eliminado!');
     router.refresh();
   }
+  
   const cancelar = async () => {
     seNuevoComentario(comentario);
     setModifVisible(false);

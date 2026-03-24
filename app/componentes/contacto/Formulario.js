@@ -1,15 +1,21 @@
 "use client";
-import { useActionState, useEffect } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 
 import { submitContactForm } from "@/lib/emails/actions";
 
 
 export function Formulario({textosFormulario}) {
+    const isFirstRender = useRef(true);
+
     const [currentState, formAction, isPending] = useActionState(submitContactForm, {});
 
     useEffect(() => {
-        if (!currentState) return;
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
+        if (!currentState || !currentState.message) return;
 
         if (currentState.success) mostrarMensajeExito(currentState.message);
         else mostrarMensajeError(currentState.message);
@@ -20,7 +26,7 @@ export function Formulario({textosFormulario}) {
     const mostrarMensajeExito = (mensaje) => toast.success(mensaje);
 
     return (
-        <form className="w-full flex flex-col justify-between border border-white/30 rounded-xl p-8" action={formAction} method="post">
+        <form className="w-full flex flex-col justify-between border border-white/30 rounded-xl p-8" action={formAction}>
 
             <div className="flex flex-col xl:flex-row gap-0 xl:gap-8">
                 <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="nombre" name="nombre" type="text" placeholder={textosFormulario.nombre}/>

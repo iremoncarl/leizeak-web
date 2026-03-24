@@ -1,5 +1,8 @@
 "use client";
 import { useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
+
+import { validarFormLogin } from "@/lib/auth/actions";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -26,12 +29,20 @@ export default function Login() {
 
     if (loading) return;
     setLoading(true);
-/*
-    console.log("email:")
-    console.log(email)
-    console.log("password:")
-    console.log(password)
-*/
+
+    const formData = new FormData(e.target);
+    console.log("formData:")
+    console.log(formData)
+
+    const result = await validarFormLogin(formData);
+    console.log(result)
+
+    if (!result.success) {
+      mostrarMensajeError(result.message);
+      setLoading(false);
+      return;
+    }
+
     const supabase = getSupabaseBrowserClient();
 
     const { error } = await supabase.auth.signInWithPassword({
@@ -40,12 +51,11 @@ export default function Login() {
     });
   
     if (error) {
+      mostrarMensajeError("Credencialen no válidas");
       console.log(error.message);
       setLoading(false);
       return;
-    } else {
-      console.log("Login correcto");
-    }
+    } 
   
     setLoading(false);
     router.push("/");
@@ -53,13 +63,15 @@ export default function Login() {
   };
 
 
+  const mostrarMensajeError = (mensaje) => toast.error(mensaje);
+
   return (
     <div className="flex flex-1 justify-center items-center">
       
       <Image src={fondo} alt="Leizeak en concierto" fill className="absolute object-cover max-h-screen object-[25%_center]"/>
       
       
-      <div className="w-[85vw] h-[50vh] lg:w-[60vw] lg:h-[70vh] xl:w-[40vw] bg-white/5 backdrop-blur rounded-3xl border border-white/30">
+      <div className="w-[85vw] h-[50vh] lg:w-[60vw] lg:h-[70vh] xl:w-[40vw] bg-black/50 backdrop-blur rounded-3xl border border-white/30">
         {/*
         <Image src={logo} alt="Logo de Leizeak" width="full" height="full" className="px-70 py-10"/>
         */}
@@ -67,16 +79,16 @@ export default function Login() {
         <form className="px-8 lg:px-16 py-8 h-full flex flex-col justify-around text-sm lg:text-lg" onSubmit={handleSubmit}>
           <div>
             <label className="block text-white/90 font-bold mb-2" htmlFor="email">{t('usuario')}</label>
-            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required placeholder={t('usuarioPlaceholder')}/>
+            <input className="border border-white/30 bg-black/70 rounded w-full p-2 text-white text-sm" id="email" name="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required placeholder={t('usuarioPlaceholder')}/>
           </div>
 
           <div>
             <label className="block text-white/90 font-bold mb-2" htmlFor="password">{t('contrasenia')}</label>
-            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} required placeholder={t('contraseniaPlaceholder')}/>
+            <input className="border border-white/30 bg-black/70 rounded w-full p-2 text-white text-sm" id="password" name="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder={t('contraseniaPlaceholder')}/>
           </div>
 
           <div className="flex flex-col">
-            <button className="border border-white/30 bg-black/50 hover:bg-white/30 transition duration-300 text-white font-bold py-2 px-4 rounded-3xl" type="submit">
+            <button className="border border-white/30 bg-black/90 hover:bg-white/30 transition duration-300 text-white font-bold py-2 px-4 rounded-3xl" type="submit">
               {loading ? t('iniciandoSesion') : t('iniciarSesion')}
             </button>
 
@@ -88,6 +100,7 @@ export default function Login() {
         </form>
 
       </div>
+      <Toaster position="top-center" containerStyle={{top: 100}}/>
     </div>
   );
 }
