@@ -47,3 +47,8 @@ https://www.youtube.com/watch?v=n_sNri8TGGo
 
 Internacionalización:
 https://next-intl.dev/docs/getting-started/app-router
+
+
+
+toast:
+https://react-hot-toast.com/
