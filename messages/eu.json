@@ -1,11 +1,11 @@
 {
   "MenuNavegacion": {
-    "inicio": "ETXEA",
-    "conciertos": "KONTZERTUAK",
-    "noticias": "ALDIRAK",
-    "productos": "PRODUKTUAK",
-    "biografia": "BIOGRAFIA",
-    "contacto": "KONTAKTUA",
+    "inicio": "Etxea",
+    "conciertos": "Kontzertuak",
+    "noticias": "Aldirak",
+    "productos": "Produktuak",
+    "biografia": "Biografia",
+    "contacto": "Kontaktua",
     "iniciarSesionBtn": "SARTU",
     "cerrarSesionBtn": "IRTEN"
   },

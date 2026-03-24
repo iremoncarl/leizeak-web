@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {getTranslations} from 'next-intl/server';
+import {getTranslations, getLocale} from 'next-intl/server';
 
 import { getOpinionesProducto, getProducto } from "@/lib/supabase/actions";
 import { getUser } from "@/lib/auth/getUser";
@@ -11,6 +11,9 @@ import ModificarOpinion from "@/app/componentes/productos/ModificarOpinion";
 
 export default async function ProductoDetalle({ params }) {
   const t = await getTranslations('PagProductos');
+  
+  const locale = await getLocale();
+  
   const { id } = await params;
 
   const user = await getUser();
@@ -45,8 +48,8 @@ export default async function ProductoDetalle({ params }) {
         </div>
         
         <div className="bg-white/0">
-          <h1 className="mb-8 text-4xl font-bold text-white font-serif">{info.nombre_es}</h1>
-          <p className="text-white text-2xl font-serif">{info.descripcion_es}</p>
+          <h1 className="mb-8 text-4xl font-bold text-white font-serif">{info[`nombre_${locale}`]}</h1>
+          <p className="text-white text-2xl font-serif">{info[`descripcion_${locale}`]}</p>
           <p></p>
         </div>
       </div>

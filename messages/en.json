@@ -1,11 +1,11 @@
 {
   "MenuNavegacion": {
-    "inicio": "HOME",
-    "conciertos": "CONCERTS",
-    "noticias": "NEWS",
-    "productos": "PRODUCTS",
-    "biografia": "BIOGRAPHY",
-    "contacto": "CONTACT",
+    "inicio": "Home",
+    "conciertos": "Concerts",
+    "noticias": "News",
+    "productos": "Products",
+    "biografia": "Biography",
+    "contacto": "Contact",
     "iniciarSesionBtn": "LOG IN",
     "cerrarSesionBtn": "LOG OUT"
   },

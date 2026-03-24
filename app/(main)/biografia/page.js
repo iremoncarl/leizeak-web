@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {getTranslations} from 'next-intl/server';
+import {getTranslations, getLocale} from 'next-intl/server';
 
 import { getLineaTemporal } from "@/lib/supabase/actions";
 
@@ -8,6 +8,8 @@ import imagenPrincipal from '../../../public/biografia_principal.jpg'
 
 export default async function Biografia() {
   const t = await getTranslations('PagBiografia');
+  
+  const locale = await getLocale();
 
   const fechasLineaTemporal = await getLineaTemporal();
 
@@ -39,9 +41,14 @@ export default async function Biografia() {
         {fechasLineaTemporal.map((fecha, index) => (
           <li key={index} className={`relative w-1/2 mb-10 ${index % 2 === 0 ? "pr-8 text-right" : "ml-auto pl-8"}`}>
             <div className={`absolute w-5 h-5 border bg-black rounded-full z-10 top-2 ${index % 2 === 0 ? "translate-x-1/2 right-0" : "-translate-x-1/2 left-0"}`}></div>
+            {/*
             <p className="text-sm lg:text-lg font-serif">{fecha.fecha_es}</p>
             <h3 className="text-md lg:text-2xl font-semibold font-serif my-2 text-[#a27736]">{fecha.titulo_es}</h3>
             <p className="text-sm lg:text-xl">{fecha.descripcion_es}</p>
+            */}
+            <p className="text-sm lg:text-lg font-serif">{fecha[`fecha_${locale}`]}</p>
+            <h3 className="text-md lg:text-2xl font-semibold font-serif my-2 text-[#a27736]">{fecha[`titulo_${locale}`]}</h3>
+            <p className="text-sm lg:text-xl">{fecha[`descripcion_${locale}`]}</p>
           </li>
         ))}
 

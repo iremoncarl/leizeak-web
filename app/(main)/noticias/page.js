@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {getTranslations} from 'next-intl/server';
+import {getTranslations, getLocale} from 'next-intl/server';
 
 import { getNoticias } from "@/lib/supabase/actions";
 import { FaArrowRight } from "react-icons/fa";
@@ -8,6 +8,8 @@ import { SlCalender, SlBubble} from "react-icons/sl";
 
 export default async function Noticias() {
   const t = await getTranslations('PagNoticias');
+
+  const locale = await getLocale();
 
   const noticias = await getNoticias();
   //console.log("Noticias: ", noticias);
@@ -30,8 +32,12 @@ export default async function Noticias() {
             }
             <div className="bg-black p-4 flex flex-col justify-between flex-1">
               <div>
+                {/*
                 <p className="text-lg group-hover:text-[#a27736] transition-all duration-500">{noticia.titulo_es}</p>
                 <p className="text-white/80 text-sm line-clamp-3 my-4">{noticia.noticia_es}</p>
+                */}
+                <p className="text-lg group-hover:text-[#a27736] transition-all duration-500">{noticia[`titulo_${locale}`]}</p>
+                <p className="text-white/80 text-sm line-clamp-3 my-4">{noticia[`noticia_${locale}`]}</p>
                 <div className="w-full h-[1px] bg-white/50 my-2"></div>
                 <div className="flex gap-12 mt-4">
                   <div className="flex gap-2 items-center">

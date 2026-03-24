@@ -10,7 +10,7 @@ import { FiMenu, FiUser } from "react-icons/fi";
 import CerrarSesionBtn from "../CerrarSesionBtn";
 
 
-export default function MenuDesplegable({user, idioma}) {
+export default function MenuDesplegable({user, idioma, opcionesMenu}) {
   const router = useRouter();
 
   const [mostrar, setMostrar] = useState(false);
@@ -37,12 +37,12 @@ export default function MenuDesplegable({user, idioma}) {
         
       {mostrar &&
         <div className="fixed left-0 top-20 w-full bg-black border border-white/50 flex flex-col pb-0">
-          <Link href="/" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">INICIO</Link>
-          <Link href="/conciertos" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">CONCIERTOS</Link>
-          <Link href="/noticias" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">NOTICIAS</Link>
-          <Link href="/productos" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">PRODUCTOS</Link>
-          <Link href="/biografia" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">BIOGRAFÍA</Link>
-          <Link href="/contacto" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">CONTACTO</Link>      
+          <Link href="/" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">{opcionesMenu.inicio}</Link>
+          <Link href="/conciertos" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">{opcionesMenu.conciertos}</Link>
+          <Link href="/noticias" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">{opcionesMenu.noticias}</Link>
+          <Link href="/productos" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">{opcionesMenu.productos}</Link>
+          <Link href="/biografia" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">{opcionesMenu.biografia}</Link>
+          <Link href="/contacto" className="w-full text-left px-6 py-4 text-white hover:bg-white/20 transition cursor-pointer">{opcionesMenu.contacto}</Link>
 
           <div className="border-b border-b-white/70 h-1 mx-2 my-2"></div>
 
@@ -57,12 +57,12 @@ export default function MenuDesplegable({user, idioma}) {
 
             {user ? 
               <div className="mr-6 self-center">
-                <CerrarSesionBtn />
+                <CerrarSesionBtn texto={opcionesMenu.cerrarSesion}/>
               </div>
             :
               <a href="/login" className="flex self-center gap-3 items-center border border-[#6f4403] px-6 py-3 mr-6 rounded-lg cursor-pointer bg-[#8b5504] hover:bg-[#a27736] transition">
                 <FiUser className="w-4 xl:w-5 h-4 xl:h-5" />
-                <p className="text-sm ">INICIAR SESIÓN</p>
+                <p className="text-sm ">{opcionesMenu.iniciarSesion}</p>
               </a>
             }
           </div> 
