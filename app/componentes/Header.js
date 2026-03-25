@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { cookies } from 'next/headers';
-import {getTranslations} from 'next-intl/server';
+import {getTranslations, getLocale} from 'next-intl/server';
 
 import { getUser } from "@/lib/auth/getUser";
 
@@ -18,9 +17,9 @@ export default async function Header() {
 
     const user = await getUser();
     
-    const store = await cookies();
-    const locale = store.get('locale')?.value;
-
+    const locale = await getLocale();
+    console.log("header - locale: ", locale)
+    
     const opcionesMenu = {
         "inicio" : t('inicio').toUpperCase(),
         "conciertos": t('conciertos').toUpperCase(),

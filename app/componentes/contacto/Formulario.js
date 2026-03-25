@@ -5,7 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { submitContactForm } from "@/lib/emails/actions";
 
 
-export function Formulario({textosFormulario}) {
+export function Formulario({textosFormulario, user}) {
     const isFirstRender = useRef(true);
 
     const [currentState, formAction, isPending] = useActionState(submitContactForm, {});
@@ -33,24 +33,31 @@ export function Formulario({textosFormulario}) {
     const mostrarMensajeExito = (mensaje) => toast.success(mensaje);
 
     return (
-        <form className="w-full flex flex-col justify-between border border-white/30 rounded-xl p-4 lg:p-8" action={formAction}>
+        <div className="border border-white/30 rounded-xl relative group">
+            <form className="w-full h-full flex flex-col justify-between p-4 lg:p-8" action={formAction}>
 
-            <div className="flex flex-col xl:flex-row gap-0 xl:gap-8">
-                <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="nombre" name="nombre" type="text" placeholder={textosFormulario.nombre} onChange={(e) => setNombre(e.target.value)} value={nombre}/>
-                <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="apellidos" name="apellidos" type="text" placeholder={textosFormulario.apellidos} onChange={(e) => setApellidos(e.target.value)} value={apellidos}/>
-            </div>
+                <div className="flex flex-col xl:flex-row gap-0 xl:gap-8">
+                    <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="nombre" name="nombre" type="text" placeholder={textosFormulario.nombre} onChange={(e) => setNombre(e.target.value)} value={nombre}/>
+                    <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="apellidos" name="apellidos" type="text" placeholder={textosFormulario.apellidos} onChange={(e) => setApellidos(e.target.value)} value={apellidos}/>
+                </div>
 
-            <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="email" name="email" type="email" placeholder={textosFormulario.correo} onChange={(e) => setCorreo(e.target.value)} value={correo}/>
-            <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="asunto" name="asunto" type="text" placeholder={textosFormulario.asunto} onChange={(e) => setAsunto(e.target.value)} value={asunto}/>
+                <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="email" name="email" type="email" placeholder={textosFormulario.correo} onChange={(e) => setCorreo(e.target.value)} value={correo}/>
+                <input className="mb-8 pb-2 border-b border-white focus:border-[#a27736] outline-none placeholder-white/60" id="asunto" name="asunto" type="text" placeholder={textosFormulario.asunto} onChange={(e) => setAsunto(e.target.value)} value={asunto}/>
 
-            <p>{textosFormulario.mensaje}</p>
-            <textarea className="mb-8 p-2 h-full border border-white/30 focus:border-[#a27736]/70 outline-none rounded mt-2" id="mensaje" name="mensaje" type="text" onChange={(e) => setMensaje(e.target.value)} value={mensaje}/>
+                <p>{textosFormulario.mensaje}</p>
+                <textarea className="mb-8 p-2 h-full border border-white/30 focus:border-[#a27736]/70 outline-none rounded mt-2" id="mensaje" name="mensaje" type="text" onChange={(e) => setMensaje(e.target.value)} value={mensaje}/>
 
-            <button className="bg-[#8b5504] hover:bg-[#a27736] transition cursor-pointer text-white font-bold py-2 px-4 rounded-3xl" type="submit">
-                {isPending ? textosFormulario.enviando : textosFormulario.enviar}
-            </button>
-            
-            <Toaster position="top-center" containerStyle={{top: 100}}/>
-        </form>
+                <button className="bg-[#8b5504] hover:bg-[#a27736] transition cursor-pointer text-white font-bold py-2 px-4 rounded-3xl" type="submit" disabled={!user}>
+                    {isPending ? textosFormulario.enviando : textosFormulario.enviar}
+                </button>
+                
+                <Toaster position="top-center" containerStyle={{top: 100}}/>
+            </form>
+            {!user &&
+                <div className="absolute inset-0 flex items-center justify-center bg-black/80 rounded-xl opacity-100 md:opacity-0 group-hover:opacity-100 transition">
+                    <p className="text-center">Debes inciar sesión para acceder al formulario de contacto</p>
+                </div>
+            }
+        </div>
     );
 }

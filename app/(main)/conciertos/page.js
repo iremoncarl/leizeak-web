@@ -1,4 +1,4 @@
-import {getTranslations} from 'next-intl/server';
+import {getTranslations, getLocale} from 'next-intl/server';
 import { cookies } from 'next/headers';
 
 import { getConciertosFuturos, getConciertosPasados, getCartel } from "@/lib/supabase/actions";
@@ -9,8 +9,7 @@ import Concierto from "@/app/componentes/conciertos/Concierto";
 export default async function Conciertos() {
   const t = await getTranslations('PagConciertos');
   
-  const store = await cookies();
-  const locale = store.get('locale')?.value;  
+  const locale = await getLocale();
 
   const conciertosFuturos = await getConciertosFuturos();
   //console.log("futuros:")

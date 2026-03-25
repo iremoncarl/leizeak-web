@@ -1,12 +1,16 @@
 import {getTranslations} from 'next-intl/server';
 
+import { getUser } from "@/lib/auth/getUser";
+
 import { Formulario } from "@/app/componentes/contacto/Formulario";
 import { FaYoutube, FaInstagram, FaFacebookSquare, FaArrowRight } from "react-icons/fa";
 
 
 export default async function Contacto() {
   const t = await getTranslations('PagContacto');
-
+  const user = await getUser();
+console.log("USER:")
+console.log(user)
   const textosFormulario = {
     "nombre" : t('formNombre'),
     "apellidos": t('formApellidos'),
@@ -68,7 +72,7 @@ export default async function Contacto() {
 
 
         {/* Formulario de contacto */}
-        < Formulario textosFormulario={textosFormulario}/>
+        < Formulario textosFormulario={textosFormulario} user={user}/>
         
       </div>      
     </main>

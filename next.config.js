@@ -14,9 +14,11 @@ const nextConfig = {
 module.exports = nextConfig
 */
 
+
+//Se importa el plugin de next-intl
 const createNextIntlPlugin = require('next-intl/plugin');
 
-//const withNextIntl = createNextIntlPlugin();
+//Se inicializa el plugin de next-intl indicando la ruta del archivo de configuración
 const withNextIntl = createNextIntlPlugin('./i18n/request.js');
 
 /** @type {import('next').NextConfig} */
@@ -31,4 +33,6 @@ const nextConfig = {
   },
 }
 
+//Se exporta la configuración de Next.js envuelta con el plugin de next-intl
+//Esto integra la internacionalización en toda la aplicación
 module.exports = withNextIntl(nextConfig);

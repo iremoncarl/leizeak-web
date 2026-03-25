@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         
         <div className="flex flex-1">
           <NextIntlClientProvider>
-          {children}
+            {children}
           </NextIntlClientProvider>
         </div>
         
