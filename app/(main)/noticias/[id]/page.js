@@ -5,7 +5,7 @@ import NoticiaDetalles from "@/app/componentes/noticias/NoticiaDetalles";
 import NuevoComentario from "@/app/componentes/noticias/NuevoComentario";
 import ModificarComentario from "@/app/componentes/noticias/ModificarComentario";
 
-import { getNoticias, getComentariosNoticia } from "@/lib/supabase/actions";
+import { getNoticias, getComentariosNoticia, getUsername } from "@/lib/supabase/actions";
 import { getUser } from "@/lib/auth/getUser";
 
 export default async function Noticia({ params }) {
@@ -19,6 +19,12 @@ export default async function Noticia({ params }) {
 
   const comentarios = await getComentariosNoticia(id);
   //console.log("Comentarios noticias: ", comentarios);
+  const comentariosFinal = await Promise.all(
+    comentarios.map(async (comentario) => {
+      const username = await getUsername(comentario.usuario_id);
+      return { ...comentario, username };
+    })
+  );
 
   const formatearFecha = (fecha) => {
     const date = new Date(fecha);
@@ -57,12 +63,12 @@ export default async function Noticia({ params }) {
             {comentarios.length===0 ? 
               <p>{t('noComentarios')}</p>
             :
-              comentarios.map((comentario) => (
+              comentariosFinal.map((comentario) => (
                 <div key={comentario.id} className="text-white w-full flex p-4 mb-5 bg-white/15 rounded-xl bg-green-300">
                   <div className="px-0 lg:px-4 w-full">
                     <div className="flex justify-between mb-2">
                       <div className="flex gap-4 items-center">
-                        <p className="text-md lg:text-lg font-semibold">Nombre usuario</p>
+                        <p className="text-md lg:text-lg font-semibold">{comentario.username.username}</p>
                         <p className="text-sm text-white/75">{formatearFecha(comentario.created_at)}</p>
                       </div>
 

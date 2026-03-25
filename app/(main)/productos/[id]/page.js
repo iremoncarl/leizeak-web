@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {getTranslations, getLocale} from 'next-intl/server';
 
-import { getOpinionesProducto, getProducto } from "@/lib/supabase/actions";
+import { getOpinionesProducto, getProducto, getUsername } from "@/lib/supabase/actions";
 import { getUser } from "@/lib/auth/getUser";
 
 import NuevaOpinion from "@/app/componentes/productos/NuevaOpinion";
@@ -24,6 +24,16 @@ export default async function ProductoDetalle({ params }) {
 
   const info = await getProducto(id);
   const opiniones = await getOpinionesProducto(id);
+  const opinionesFinal = await Promise.all(
+    opiniones.map(async (opinion) => {
+      const username = await getUsername(opinion.usuario_id);
+      return { ...opinion, username };
+    })
+  );
+
+  //const opinionesFinal = opiniones.map((opinion) => ({...opinion, username: getUsername(opinion.usuario_id)}));
+console.log(opinionesFinal)
+
 
   const formatearFecha = (fecha) => {
     const date = new Date(fecha);
@@ -72,13 +82,16 @@ export default async function ProductoDetalle({ params }) {
         {opiniones.length===0 ? 
           <p>{t('noOpiniones')}</p>
         :
-          opiniones.map((opinion) => (
+          opinionesFinal.map((opinion) => (
             <div key={opinion.id} className="text-white w-full flex p-4 mb-5 bg-white/15 rounded-xl bg-green-300">
+              {/*
               <div className="bg-[#8b5504] rounded-full w-10 h-10"></div>
+              */}
+              
               <div className="px-4 w-full">
                 <div className="flex justify-between mb-2">
                   <div className="flex gap-4 items-center">
-                    <p className="text-lg font-semibold">Nombre usuario</p>
+                    <p className="text-lg font-semibold">{opinion.username.username}</p>
                     <p className="text-sm text-white/75">{formatearFecha(opinion.created_at)}</p>
                   </div>
 

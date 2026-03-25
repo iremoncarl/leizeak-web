@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {useTranslations} from 'next-intl';
 import toast, { Toaster } from 'react-hot-toast';
@@ -11,6 +12,7 @@ import logo from '../../../public/lzk_logo_txuri.png'
 import fondo from '../../../public/pag_inicio.jpg'
 
 import { registrarUsuario } from "@/lib/auth/actions";
+import { insertarUsuario } from "@/lib/supabase/actions";
 
 export default function Registro() {
   const t = useTranslations('PagRegistro');
@@ -18,6 +20,9 @@ export default function Registro() {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+
+  const router = useRouter();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -33,6 +38,7 @@ export default function Registro() {
     console.log(result)
 
     if (!result.success) {
+      console.log("a")
       mostrarMensajeError(result.message);
       setLoading(false)
       return;
@@ -46,14 +52,31 @@ export default function Registro() {
     });
 
     if (error) {
+      console.log("b")
       mostrarMensajeError(error.message);
-    } else {
-      mostrarMensajeExito("Registro exitoso. Comprueba tu bandeja de correo electrónico.")
+      setLoading(false)
+      return;
     }
-    console.log(data)
+
+    const user = data.user;
+    console.log("user: ", user.id)
+
+    if (!user) {
+      mostrarMensajeError("No se pudo crear el usuario");
+      setLoading(false);
+      return;
+    }
+    
+    const res = await insertarUsuario(user.id, username)
+    console.log("res: " + res)
+    mostrarMensajeExito("Registro de usuario exitoso.")
+    router.push("/");
+     
+    //console.log(data)
     setLoading(false)
   };
 
+ 
   const mostrarMensajeError = (mensaje) => toast.error(mensaje);
   const mostrarMensajeExito = (mensaje) => toast.success(mensaje);
 
@@ -70,12 +93,12 @@ export default function Registro() {
             <input className="border border-white/30 bg-black/70 rounded w-full p-2 text-white text-sm" name="email" id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required placeholder={t('correoPlaceholder')}/>
           </div>
  
-{/*
-<div>
-  <label className="block text-white/90 font-bold mb-2" htmlFor="usuario">Nombre de usuario</label>
-  <input className="border border-white/30 rounded w-full p-2 text-white text-sm" id="usuario" type="text" placeholder="Escriba su nombre de usuario"/>
-</div>
-*/}
+
+          <div>
+            <label className="block text-white/90 font-bold mb-2" htmlFor="username">Nombre de usuario</label>
+            <input className="border border-white/30 rounded w-full p-2 text-white text-sm" name="username" id="username" type="text" value={username} onChange={(event) => setUsername(event.target.value)} required placeholder="Escriba su nombre de usuario"/>
+          </div>
+
           
           <div>
             <label className="block text-white/90 font-bold mb-2" htmlFor="password">{t('contrasenia')}</label>
