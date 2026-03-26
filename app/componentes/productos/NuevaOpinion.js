@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { FiSend } from "react-icons/fi";
 
 import { crearOpinionProducto } from "@/lib/supabase/actions";
@@ -10,23 +10,28 @@ export default function NuevaOpinion({productoId, opinionPlaceholder, textoEnvia
   const router = useRouter();
 
   const [opinion, setOpinion] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const añadirOpinion = async () => {
+    if (loading) return;
+    setLoading(true);
+
     if (!opinion.trim()) {
-      mostrarMensajeError('¡El campo de texto no puede estar vacío!');
+      toast.error('¡El campo de texto no puede estar vacío!');
+      setLoading(false);
       return;
     }
     const res = await crearOpinionProducto(productoId, opinion.trim());
     if (!res.ok) {
-      mostrarMensajeError('Se ha producido un error al publicar la opinión');
+      toast.error('Se ha producido un error al publicar la opinión');
+      setLoading(false);
       return;
     }
-    mostrarMensajeExito('¡Opinión publicada!');
+    toast.success('¡Opinión publicada!');
+    setLoading(false);
     setOpinion("");
     router.refresh();
   }
-  const mostrarMensajeError = (mensaje) => toast.error(mensaje);
-  const mostrarMensajeExito = (mensaje) => toast.success(mensaje);
 
   return (
     <div className="text-white p-4 mb-5 bg-white/15 rounded-xl flex flex-col mt-5">
@@ -35,7 +40,6 @@ export default function NuevaOpinion({productoId, opinionPlaceholder, textoEnvia
         <p>{textoEnviarBtn}</p>
         <FiSend className="w-5 h-5"/>
       </button>  
-      <Toaster position="top-center" containerStyle={{top: 100}}/>
     </div>
   )
 }

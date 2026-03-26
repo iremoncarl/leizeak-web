@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { FiTrash2, FiEdit } from "react-icons/fi";
 
 import { modificarOpinionProducto, eliminarOpinionProducto } from "@/lib/supabase/actions";
@@ -11,30 +11,45 @@ export default function ModificarOpinion({opinionId, opinion, textoCancelarBtn, 
 
   const [nuevaOpinion, setNuevaOpinion] = useState(opinion);
   const [modifOpinion, setModifOpinion] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const modificarOpinion = async () => {
     console.log("Pulsado modificar opinión con id " + opinionId)
+
+    if (loading) return;
+    setLoading(true);
+
     if (!nuevaOpinion.trim()) {
-      mostrarMensajeError("¡El campo de texto no puede estar vacío!");
+      toast.error("¡El campo de texto no puede estar vacío!");
+      setLoading(false);
       return;
     }
     const res = await modificarOpinionProducto(opinionId, nuevaOpinion);
     if (!res.ok) {
-      mostrarMensajeError('Se ha producido un error al modificar la opinión');
+      toast.error('Se ha producido un error al modificar la opinión');
+      setLoading(false);
       return;
     }
-    mostrarMensajeExito('¡Opinión modificada!');
+    toast.success('¡Opinión modificada!');
+    setLoading(false);
     router.refresh();
     setModifOpinion(false);
   }
+
   const eliminarOpinion = async () => {
     console.log("Pulsado eliminar opinión con id " + opinionId)
+
+    if (loading) return;
+    setLoading(true);
+
     const res = await eliminarOpinionProducto(opinionId);
     if (!res.ok) {
-      mostrarMensajeError('Se ha producido un error al eliminar la opinión');
+      toast.error('Se ha producido un error al eliminar la opinión');
+      setLoading(false);
       return;
     }
-    mostrarMensajeExito('¡Opinión eliminada!');
+    toast.success('¡Opinión eliminada!');
+    setLoading(false);
     router.refresh();
   }
 
@@ -42,9 +57,6 @@ export default function ModificarOpinion({opinionId, opinion, textoCancelarBtn, 
     setNuevaOpinion(opinion);
     setModifOpinion(false);
   }
-
-  const mostrarMensajeError = (mensaje) => toast.error(mensaje);
-  const mostrarMensajeExito = (mensaje) => toast.success(mensaje);
 
   return (
     <div className="flex gap-4">
@@ -72,7 +84,6 @@ export default function ModificarOpinion({opinionId, opinion, textoCancelarBtn, 
               </div>
         </div>
       }
-      <Toaster position="top-center" containerStyle={{top: 100}}/>
     </div>
   )
 }

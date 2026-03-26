@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css"
 import {NextIntlClientProvider} from 'next-intl';
+import { Toaster } from 'react-hot-toast';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
         <div className="flex-1 flex">
           <NextIntlClientProvider>
             {children}
+            <Toaster position="top-center" containerStyle={{ top: 100 }} toastOptions={{ duration: 3000 }}/>
           </NextIntlClientProvider>
         </div>
      

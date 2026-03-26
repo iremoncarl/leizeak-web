@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 import { validarFormLogin } from "@/lib/auth/actions";
 
@@ -102,7 +102,10 @@ export default function Login() {
         </form>
 
       </div>
+      
+      {/*
       <Toaster position="top-center" containerStyle={{top: 100}}/>
+      */}
     </div>
   );
 }

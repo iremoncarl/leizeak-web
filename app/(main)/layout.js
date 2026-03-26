@@ -3,6 +3,7 @@ import "../globals.css";
 import Header from "../componentes/Header";
 import Footer from "../componentes/Footer";
 import {NextIntlClientProvider} from 'next-intl';
+import { Toaster } from 'react-hot-toast';
 
 
 const geistSans = Geist({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         <div className="flex flex-1">
           <NextIntlClientProvider>
             {children}
+            <Toaster position="top-center" containerStyle={{ top: 100 }} toastOptions={{ duration: 3000 }}/>
           </NextIntlClientProvider>
         </div>
         

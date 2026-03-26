@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {useTranslations} from 'next-intl';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 import { useState } from "react"
 import { getSupabaseBrowserClient } from "@/lib/auth/browser-client";
@@ -126,8 +126,10 @@ export default function Registro() {
 
         </form>
       </div>
-      
+
+      {/*
       <Toaster position="top-center" containerStyle={{top: 100}}/>
+      */}
     </div>
   );
 }

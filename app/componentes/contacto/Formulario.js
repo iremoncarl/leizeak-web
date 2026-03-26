@@ -51,7 +51,10 @@ export function Formulario({textosFormulario, user}) {
                     {isPending ? textosFormulario.enviando : textosFormulario.enviar}
                 </button>
                 
-                <Toaster position="top-center" containerStyle={{top: 100}}/>
+                
+      {/*
+      <Toaster position="top-center" containerStyle={{top: 100}}/>
+      */}
             </form>
             {!user &&
                 <div className="absolute inset-0 flex items-center justify-center bg-black/80 rounded-xl opacity-100 md:opacity-0 group-hover:opacity-100 transition">

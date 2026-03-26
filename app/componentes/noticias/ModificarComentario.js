@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 import { modificarComentarioNoticia, eliminarComentarioNoticia } from "@/lib/supabase/actions";
 import { FiTrash2, FiEdit } from "react-icons/fi";
@@ -11,31 +11,43 @@ export default function ModificarComentario({comentarioId, comentario, textoCanc
   
   const [nuevoComentario, seNuevoComentario] = useState(comentario);
   const [modifVisible, setModifVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const modificarComentario = async () => {
     console.log("Pulsado modificar comentario con id " + comentarioId)
+    if (loading) return;
+    setLoading(true);
+
     if (!nuevoComentario.trim()) {
-      mostrarMensajeError("¡El campo de texto no puede estar vacío!");
+      toast.error("¡El campo de texto no puede estar vacío!");
+      setLoading(false);
       return;
     }
     const res = await modificarComentarioNoticia(comentarioId, nuevoComentario.trim());
     if (!res.ok) {
-      mostrarMensajeError('Se ha producido un error al modificar el comentario');
+      toast.error('Se ha producido un error al modificar el comentario');
+      setLoading(false);
       return;
     }
-    mostrarMensajeExito('¡Comentario modificado!');
-    router.refresh();
+    toast.success('¡Comentario modificado!');
+    setLoading(false);
     setModifVisible(false);
+    router.refresh();
   }
 
   const eliminarComentario = async () => {
     console.log("Pulsado eliminar comentario con id " + comentarioId)
+    if (loading) return;
+    setLoading(true);
+
     const res = await eliminarComentarioNoticia(comentarioId);
     if (!res.ok) {
-      mostrarMensajeError('Se ha producido un error al eliminar el comentario');
+      toast.error('Se ha producido un error al eliminar el comentario');
+      setLoading(false);
       return;
     }
-    mostrarMensajeExito('¡Comentario eliminado!');
+    toast.success('¡Comentario eliminado!');
+    setLoading(false);
     router.refresh();
   }
   
@@ -44,9 +56,6 @@ export default function ModificarComentario({comentarioId, comentario, textoCanc
     setModifVisible(false);
   }
 
-  const mostrarMensajeError = (mensaje) => toast.error(mensaje);
-  const mostrarMensajeExito = (mensaje) => toast.success(mensaje);
-  
   return (
     <div className="flex gap-4">
       <button onClick={()=>setModifVisible(true)} className="hover:bg-white/30 transition rounded-full w-10 h-10 flex items-center justify-center">
@@ -73,7 +82,6 @@ export default function ModificarComentario({comentarioId, comentario, textoCanc
           </div>
         </div>
       }
-      <Toaster position="top-center" containerStyle={{top: 100}}/>
     </div>
   )
 }

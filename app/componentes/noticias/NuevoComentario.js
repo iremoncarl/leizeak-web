@@ -1,34 +1,39 @@
 'use client'
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { FiSend } from "react-icons/fi";
 
 import { crearComentarioNoticia } from "@/lib/supabase/actions";
 
-export default function NuevoComentario({noticiaId, textoPlaceHolder, textoEnviarBtn}) {
+export default function NuevoComentario({ noticiaId, textoPlaceHolder, textoEnviarBtn }) {
   const router = useRouter();
 
   const [comentario, setComentario] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const crearComentario = async () => {
+    if (loading) return;
+    setLoading(true);
+
     if (!comentario.trim()) {
-      mostrarMensajeError('¡El campo de texto no puede estar vacío!');
+      toast.error('¡El campo de texto no puede estar vacío!');
+      setLoading(false);
       return;
     }
     const res = await crearComentarioNoticia(noticiaId, comentario.trim());
     if (!res.ok) {
-      mostrarMensajeError('Se ha producido un error al enviar el comentario');
+      toast.error('Se ha producido un error al enviar el comentario');
+      setLoading(false);
       return;
     }
+    toast.success('¡Comentario publicado!');
     setComentario("");
-    mostrarMensajeExito('¡Comentario publicado!');
+    setLoading(false);
     router.refresh();
   }
 
-  const mostrarMensajeError = (mensaje) => toast.error(mensaje);
-  const mostrarMensajeExito = (mensaje) => toast.success(mensaje);
-
+  
   return (
     <div className="text-white p-4 mb-5 bg-white/15 rounded-xl flex flex-col mt-5">
       <textarea type="text" placeholder={textoPlaceHolder} value={comentario} onChange={(e) => setComentario(e.target.value)} className="w-full p-2 mb-4 min-h-30 rounded border border-white/20"/>
@@ -36,9 +41,6 @@ export default function NuevoComentario({noticiaId, textoPlaceHolder, textoEnvia
         <p>{textoEnviarBtn}</p>
         <FiSend className="w-5 h-5"/>
       </button>  
- 
-      <Toaster position="top-center" containerStyle={{top: 100}}/>
-   
     </div>
   )
 }
