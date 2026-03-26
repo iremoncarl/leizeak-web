@@ -35,11 +35,13 @@ export default async function Header() {
     return (
         <header className="bg-black/90 sticky top-0 border-b border-white/50 z-50">
             <nav className="grid grid-cols-2 lg:grid-cols-5 items-center px-4">
+                
+                {/* Logo del grupo */}
                 <div className="flex justify-start">
                     <Image src={logo} alt="Logo de Leizeak" width={130} height={50} />
                 </div>
                 
-         
+                {/* Menú de navegación */}
                 <div className="hidden lg:flex justify-between col-span-3 h-full items-center">
                     <Link href="/" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">{opcionesMenu.inicio}</Link>
                     <Link href="/conciertos" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">{opcionesMenu.conciertos}</Link>
@@ -49,6 +51,7 @@ export default async function Header() {
                     <Link href="/contacto" className="hover:text-[#a27736] text-sm xl:text-lg h-full w-full flex items-center justify-center">{opcionesMenu.contacto}</Link>
                 </div>            
 
+                {/* Selector idioma + botón de inicio/cierre de sesión */}
                 <div>
                     <div className="hidden lg:flex justify-end items-center gap-3">
                         < SelectorIdioma/>

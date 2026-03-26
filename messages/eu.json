@@ -71,8 +71,8 @@
     "loginNecesario" : "Harremanetarako inprimakira sartzeko saioa hasi behar duzu."
   },
   "PagLogin": {
-    "usuario": "Erabiltzaile-izena edo helbide elektronikoa",
-    "usuarioPlaceholder": "Sartu hemen zure erabiltzaile-izena edo helbide elektronikoa",
+    "usuario": "Helbide elektronikoa",
+    "usuarioPlaceholder": "Sartu hemen zure helbide elektronikoa",
     "contrasenia": "Pasahitza",
     "contraseniaPlaceholder": "Sartu hemen zure pasahitza",
     "iniciarSesion": "Sartu",

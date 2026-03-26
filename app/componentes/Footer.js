@@ -7,6 +7,7 @@ export default async function Footer() {
 
     return (
         <footer className="bg-black border-t border-white/50 py-5 px-10 flex flex-col md:flex-row justify-between">
+            {/* Sección de enlaces a redes sociales */}
             <div className="flex justify-center gap-6">
                 <a href="https://www.youtube.com/@leizeaktaldea9731" target="_blank" rel="noopener noreferrer" aria-label="Enlace a YouTube" className="group relative">
                     <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/20 border border-white/50 group-hover:border-white group-hover:scale-110">
@@ -24,6 +25,8 @@ export default async function Footer() {
                     </div>
                 </a>
             </div>
+            
+            {/* Menú de navegación */}
             <div className="hidden md:flex justify-center items-center gap-6">
                 <Link href="/" className="hover:underline">{t('inicio')}</Link>
                 <Link href="/conciertos" className="hover:underline">{t('conciertos')}</Link>

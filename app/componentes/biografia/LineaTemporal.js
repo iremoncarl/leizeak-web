@@ -4,9 +4,7 @@ import { useState } from "react";
 
 export default function LineaTemporal({fechasLineaTemporal, locale}) {
 
-
   const [abierto, setAbierto] = useState(null)
-
 
   return (
     <div className="flex justify-center">

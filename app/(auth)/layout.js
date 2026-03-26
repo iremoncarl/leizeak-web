@@ -17,6 +17,7 @@ export const metadata = {
   description: "Plataforma web del grupo LEIZEAK",
 };
 
+{/* LAYOUT PARA PÁGINAS DE INICIO DE SESIÓN Y REGISTRO */}
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

@@ -54,7 +54,6 @@ export default function Calendario({conciertosFuturos, conciertosPasados, idioma
           required 
           selected={selected} 
           onSelect={() => null}
-          //footer={ selected ? `Selected: ${selected[0]}` : "Pick a day." }
         />
       </div>
     </div>

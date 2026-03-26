@@ -20,8 +20,10 @@ export default async function Biografia() {
 
       <div className="grid grid-cols-1 xl:grid-cols-2 mb-20 gap-10 lg:gap-20 p-2 lg:p-10">
 
+        {/* Imagen de las integrantes del grupo */}
         <Image src={imagenPrincipal} alt="Foto de las componentes de Leizeak" className="rounded-md"/>
         
+        {/* Historia del grupo */}
         <div>
           <h2 className="text-xl xl:text-3xl text-[#a27736] font-serif">{t('subtitulo')}</h2>
           <p className="text-sm xl:text-2xl mt-4 text-justify">{t('texto1')}</p>
@@ -35,26 +37,8 @@ export default async function Biografia() {
       <div className="mb-30 lg:mb-70"></div>
 
       <h2 className="text-xl xl:text-3xl text-[#a27736] font-serif mb-16">{t('linea')}</h2>
+      {/* Componente de línea temporal */}
       <LineaTemporal locale={locale} fechasLineaTemporal={fechasLineaTemporal}/>
-
-      {/*
-      <div className="mb-30 lg:mb-70"></div>
-      <div className="flex justify-center">
-        <ol className="relative w-[100%] xl:max-w-[50%]">      
-          <div className="absolute left-1/2 h-full w-0.5 bg-white -translate-x-1/2"></div>            
-          {fechasLineaTemporal.map((fecha, index) => (
-            <li key={index} className={`relative w-1/2 mb-10 ${index % 2 === 0 ? "pr-8 text-right" : "ml-auto pl-8"}`}>
-              <div className={`absolute w-5 h-5 border bg-black rounded-full z-10 top-2 ${index % 2 === 0 ? "translate-x-1/2 right-0" : "-translate-x-1/2 left-0"}`}></div>
-              <p className="text-sm lg:text-lg font-serif">{fecha[`fecha_${locale}`]}</p>
-              <h3 className="text-md lg:text-2xl font-semibold font-serif my-2 text-[#a27736]">{fecha[`titulo_${locale}`]}</h3>
-              <p className="text-sm lg:text-xl hidden md:block">{fecha[`descripcion_${locale}`]}</p>
-              <button className="text-sm md:hidden underline">Ver más</button>
-            </li>
-          ))}
-        </ol>
-
-      </div>
-      */}
 
     </main>
   );

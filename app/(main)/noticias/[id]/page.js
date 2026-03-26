@@ -15,10 +15,10 @@ export default async function Noticia({ params }) {
   const user = await getUser();
 
   const noticias = await getNoticias();
-  const noticia = noticias.find((n) => n.id === Number(id));
+  const noticia = noticias.find((n) => n.id === Number(id)); //Se recoge la información de la noticia específica
 
-  const comentarios = await getComentariosNoticia(id);
-  //console.log("Comentarios noticias: ", comentarios);
+  const comentarios = await getComentariosNoticia(id); //Se recogen los comentarios de la noticia específica
+  //Se añade a cada comentario el nombre de usuario de su autor
   const comentariosFinal = await Promise.all(
     comentarios.map(async (comentario) => {
       const username = await getUsername(comentario.usuario_id);
@@ -44,10 +44,12 @@ export default async function Noticia({ params }) {
         <h1 className="text-xl font-semibold mt-16 self-center">{t('noInfo')}</h1>
       :
         <>
+        
+          {/* Detalles de noticia -> Noticia completa + imagen */}
           <NoticiaDetalles noticia={noticia}/>
 
 
-          {/* Sección de comentarios */}
+          {/* Sección para escribir nuevo comentario */}
           <div className="mt-16">
             <h2 className="mb-4 font-serif text-lg lg:text-2xl">{t('dejarComentario')}</h2>
             {!user ? 
@@ -56,6 +58,8 @@ export default async function Noticia({ params }) {
               <NuevoComentario noticiaId={id} textoPlaceHolder={t('escribirComentario')} textoEnviarBtn={t('enviarComentario')}/>
             }
           </div>
+          
+          {/* Sección de comentarios */}
           <div className="mt-16">
             <h2 className="mb-4 font-serif text-lg lg:text-2xl">{t('comentarios')}</h2>
 
@@ -72,6 +76,7 @@ export default async function Noticia({ params }) {
                         <p className="text-sm text-white/75">{formatearFecha(comentario.created_at)}</p>
                       </div>
 
+                      {/* Botones de editar y eliminar comentario (para usuarios registrados) */}
                       {(user && user.id===comentario.usuario_id) &&
                         <ModificarComentario comentarioId={comentario.id} comentario={comentario.comentario} textoCancelar={t('cancelar')} textoGuardar={t('guardar')}/>
                       }

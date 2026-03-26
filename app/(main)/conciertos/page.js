@@ -18,9 +18,21 @@ export default async function Conciertos() {
   //console.log("pasados:")
   //console.log(conciertosPasados)
 
-  const conciertosFuturosConCartel = conciertosFuturos.map((concierto) => ({...concierto, cartelUrl: getCartel(concierto.cartel)}));
-  //conciertosFuturosConCartel.forEach(conciertoo => {console.log(conciertoo)});
-  const conciertosPasadosConCartel = conciertosPasados.map((concierto) => ({...concierto, cartelUrl: getCartel(concierto.cartel)}));
+  //const conciertosFuturosConCartel = conciertosFuturos.map((concierto) => ({...concierto, cartelUrl: getCartel(concierto.cartel)}));
+  //const conciertosPasadosConCartel = conciertosPasados.map((concierto) => ({...concierto, cartelUrl: getCartel(concierto.cartel)}));
+  
+  const conciertosFuturosConCartel = await Promise.all(
+    conciertosFuturos.map(async (concierto) => {
+      const cartel = await getCartel(concierto.cartel);
+      return { ...concierto, cartelUrl: cartel};
+    })
+  );
+  const conciertosPasadosConCartel = await Promise.all(
+    conciertosPasados.map(async (concierto) => {
+      const cartel = await getCartel(concierto.cartel);
+      return { ...concierto, cartelUrl: cartel};
+    })
+  );
 
   const calendarioTexto = t('calendario');
 
@@ -28,14 +40,16 @@ export default async function Conciertos() {
     <main className="px-4 lg:px-10 py-6 lg:py-10">
       <h1 className="font-serif text-3xl lg:text-4xl font-semibold">{t('titulo')}</h1>
 
-
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-10">
+        {/* Componente de calendario */}
         <div className="">
           <div className="sticky top-20 py-10 px-2">
             <Calendario conciertosFuturos={conciertosFuturos} conciertosPasados={conciertosPasados} idioma={locale} calendarioTitulo={calendarioTexto}/>
           </div>
         </div>
+        
         <div className="p-4 lg:p-10 col-span-3">
+          {/* Sección de conciertos futuros */}
           <h2 className="text-xl lg:text-2xl font-serif">{t('futuros')}</h2>
           <div className="border-t border-white/70 mb-8"></div>
           {conciertosFuturos.length===0 ? 
@@ -45,6 +59,7 @@ export default async function Conciertos() {
               <Concierto key={concierto.id} fecha={concierto.fecha} lugar={concierto.lugar} hora={concierto.hora} cartel={concierto.cartelUrl}/> 
             ))
           }
+          {/* Sección de conciertos pasados */}
           <h2 className="text-xl lg:text-2xl mt-10 font-serif">{t('pasados')}</h2>
           <div className="border-t border-white/70 mb-8"></div>
           {conciertosPasados.length===0 ? 

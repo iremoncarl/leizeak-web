@@ -25,7 +25,6 @@ export default function Login() {
 
   async function handleSubmit(e)  {
     e.preventDefault();
-    //console.log("aaa - handleSubmit()");
 
     if (loading) return;
     setLoading(true);
@@ -72,28 +71,31 @@ export default function Login() {
       
       
       <div className="w-[85vw] h-[50vh] lg:w-[60vw] lg:h-[70vh] xl:w-[40vw] bg-black/50 backdrop-blur rounded-3xl border border-white/30">
-        {/*
-        <Image src={logo} alt="Logo de Leizeak" width="full" height="full" className="px-70 py-10"/>
-        */}
         
+        {/* Formulario de inicio de sesión */}
         <form className="px-8 lg:px-16 py-8 h-full flex flex-col justify-around text-sm lg:text-lg" onSubmit={handleSubmit}>
+          {/* Campo de correo electrónico */}
           <div>
             <label className="block text-white/90 font-bold mb-2" htmlFor="email">{t('usuario')}</label>
             <input className="border border-white/30 bg-black/70 rounded w-full p-2 text-white text-sm" id="email" name="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required placeholder={t('usuarioPlaceholder')}/>
           </div>
 
+          {/* Campo de contraseña */}
           <div>
             <label className="block text-white/90 font-bold mb-2" htmlFor="password">{t('contrasenia')}</label>
             <input className="border border-white/30 bg-black/70 rounded w-full p-2 text-white text-sm" id="password" name="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder={t('contraseniaPlaceholder')}/>
           </div>
 
+          {/* Botón para iniciar sesión */}
           <div className="flex flex-col">
             <button className="border border-white/30 bg-black/90 hover:bg-white/30 transition duration-300 text-white font-bold py-2 px-4 rounded-3xl" type="submit">
               {loading ? t('iniciandoSesion') : t('iniciarSesion')}
             </button>
 
+            {/* Enlace a página de registro */}
             <Link href="/registro" className="hover:underline text-sm flex justify-end mt-4 text-right">{t('enlaceRegistro')}</Link>
 
+            {/* Enlace a página de inicio */}
             <Link href="/" className="hover:underline text-sm flex justify-end mt-4 text-right">{t('enlaceHome')}</Link>
           </div>
           

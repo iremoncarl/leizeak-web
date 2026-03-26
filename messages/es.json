@@ -71,8 +71,8 @@
     "loginNecesario" : "Debes inciar sesión para acceder al formulario de contacto"
   },
   "PagLogin": {
-    "usuario": "Nombre de usuario o correo electrónico",
-    "usuarioPlaceholder": "Escribe aquí tu nombre de usuario o correo",
+    "usuario": "Correo electrónico",
+    "usuarioPlaceholder": "Escribe aquí tu correo electrónico",
     "contrasenia": "Contraseña",
     "contraseniaPlaceholder": "Escribe aquí tu contraseña",
     "iniciarSesion": "Iniciar sesión",

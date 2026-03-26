@@ -28,7 +28,7 @@ console.log(user)
 
       <div className="h-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-40 pb-30">
 
-        {/* Info de contacto */}
+        {/* Info de contacto + enlaces a redes sociales*/}
         <div className="flex flex-col">
           <div>
             <p className="mb-4">{t('subtitulo')}</p>

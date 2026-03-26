@@ -20,6 +20,8 @@ export default async function Noticias() {
     <main className="px-4 lg:px-10 py-6 lg:py-10 flex flex-col flex-1 ">
       <h1 className="font-serif text-3xl lg:text-4xl font-semibold mb-6 lg:mb-14">{t('titulo')}</h1>
 
+
+      {/* Vista general de noticias */}
       <div className="px-4 lg:px-10 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
       {noticias.map((noticia) => (
         <Link href={`/noticias/${noticia.id}`} key={noticia.id}>
@@ -32,10 +34,6 @@ export default async function Noticias() {
             }
             <div className="bg-black p-4 flex flex-col justify-between flex-1">
               <div>
-                {/*
-                <p className="text-lg group-hover:text-[#a27736] transition-all duration-500">{noticia.titulo_es}</p>
-                <p className="text-white/80 text-sm line-clamp-3 my-4">{noticia.noticia_es}</p>
-                */}
                 <p className="text-lg group-hover:text-[#a27736] transition-all duration-500">{noticia[`titulo_${locale}`]}</p>
                 <p className="text-white/80 text-sm line-clamp-3 my-4">{noticia[`noticia_${locale}`]}</p>
                 <div className="w-full h-[1px] bg-white/50 my-2"></div>

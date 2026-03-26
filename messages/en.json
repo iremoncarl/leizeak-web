@@ -71,8 +71,8 @@
     "loginNecesario" : "You must log in to access the contact form"
   },
   "PagLogin": {
-    "usuario": "Username or email address",
-    "usuarioPlaceholder": "Enter your username or email address here",
+    "usuario": "Email address",
+    "usuarioPlaceholder": "Enter your email address here",
     "contrasenia": "Password",
     "contraseniaPlaceholder": "Enter your password here",
     "iniciarSesion": "Log in",
