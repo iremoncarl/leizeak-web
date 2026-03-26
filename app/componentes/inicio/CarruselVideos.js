@@ -26,19 +26,19 @@ const videos = [
     id: 4,
     imagen: "/inicio/malko.png",
     titulo: "MALKO GAZIAK",
-    enlace: "https://youtu.be/ZrQAIr3dXic?si=MDqLPeCgAD6m9tRJ",
+    enlace: "https://youtu.be/-HJHbwh1_a8?si=7Qegz6IambYRDa0o",
   },
   {
     id: 5,
     imagen: "/inicio/beraien.png",
     titulo: "BERAIEN ONERAKO",
-    enlace: "https://youtu.be/ZrQAIr3dXic?si=MDqLPeCgAD6m9tRJ",
+    enlace: "https://youtu.be/UlUYdmqY2cU?si=Oc-9ug3Jf2WWsk1S",
   },
   {
     id: 6,
     imagen: "/inicio/deabruak.png",
     titulo: "DEABRUAK",
-    enlace: "https://youtu.be/ZrQAIr3dXic?si=MDqLPeCgAD6m9tRJ",
+    enlace: "https://youtu.be/8iCUhdNUmcQ?si=VqjoCwx_9hpE2HqK",
   },
 ];
 
