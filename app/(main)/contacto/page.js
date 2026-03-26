@@ -18,7 +18,8 @@ console.log(user)
     "asunto": t('formAsunto'),
     "mensaje": t('formMensaje'),
     "enviar": t('formEnviar'),
-    "enviando": t('formEnviando')
+    "enviando": t('formEnviando'),
+    "loginNecesario": t('loginNecesario')    
   }
 
   return (

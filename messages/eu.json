@@ -67,7 +67,8 @@
     "formAsunto": "Gaia",
     "formMensaje": "Mezu",
     "formEnviar": "Mezu bidali",
-    "formEnviando": "Mezu bidaltzen..."
+    "formEnviando": "Mezu bidaltzen...",
+    "loginNecesario" : "Harremanetarako inprimakira sartzeko saioa hasi behar duzu."
   },
   "PagLogin": {
     "usuario": "Erabiltzaile-izena edo helbide elektronikoa",

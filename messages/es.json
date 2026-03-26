@@ -67,7 +67,8 @@
     "formAsunto": "Asunto",
     "formMensaje": "Mensaje",
     "formEnviar": "Enviar mensaje",
-    "formEnviando": "Enviando mensaje..."
+    "formEnviando": "Enviando mensaje...",
+    "loginNecesario" : "Debes inciar sesión para acceder al formulario de contacto"
   },
   "PagLogin": {
     "usuario": "Nombre de usuario o correo electrónico",

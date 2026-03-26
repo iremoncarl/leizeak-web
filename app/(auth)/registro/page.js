@@ -86,7 +86,7 @@ export default function Registro() {
       <Image src={fondo} alt="Leizeak en concierto" fill className="absolute object-cover max-h-screen object-[25%_center]"/>
 
       <div className="w-[85vw] h-[50vh] lg:w-[60vw] lg:h-[70vh] xl:w-[40vw] bg-black/50 backdrop-blur rounded-3xl border border-white/30">
-        <form className="px-16 py-8 h-full flex flex-col justify-around text-sm lg:text-lg" onSubmit={handleSubmit}>
+        <form className="px-8 lg:px-16 py-8 h-full flex flex-col justify-around text-sm lg:text-lg" onSubmit={handleSubmit}>
 
           <div>
             <label className="block text-white/90 font-bold mb-2" htmlFor="email">{t('correo')}</label>

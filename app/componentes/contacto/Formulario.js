@@ -55,7 +55,7 @@ export function Formulario({textosFormulario, user}) {
             </form>
             {!user &&
                 <div className="absolute inset-0 flex items-center justify-center bg-black/80 rounded-xl opacity-100 md:opacity-0 group-hover:opacity-100 transition">
-                    <p className="text-center">Debes inciar sesión para acceder al formulario de contacto</p>
+                    <p className="text-center">{textosFormulario.loginNecesario}</p>
                 </div>
             }
         </div>

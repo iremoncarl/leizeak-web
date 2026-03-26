@@ -67,7 +67,8 @@
     "formAsunto": "Subject",
     "formMensaje": "Message",
     "formEnviar": "Send message",
-    "formEnviando": "Sending message..."
+    "formEnviando": "Sending message...",
+    "loginNecesario" : "You must log in to access the contact form"
   },
   "PagLogin": {
     "usuario": "Username or email address",
